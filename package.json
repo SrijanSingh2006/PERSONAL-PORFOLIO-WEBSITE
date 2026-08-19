@@ -1,0 +1,23 @@
+{
+  "name": "srijan-ai-ml-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.5.4",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.33.0",
+    "postcss": "^8.5.26",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^6.0.5"
+  }
+}
