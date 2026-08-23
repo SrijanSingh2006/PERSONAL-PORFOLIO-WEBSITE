@@ -154,7 +154,7 @@ export default function HeroSection() {
             <div className="w-[340px] h-[420px] md:w-[380px] md:h-[460px] rounded-[2.5rem] p-[2px] bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#22d3ee] shadow-[0_0_60px_rgba(99,102,241,0.4)]">
               <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-[#0d1117]">
                 <img
-                  src="/profile.png"
+                  src={`${import.meta.env.BASE_URL}profile.png`}
                   alt="Srijan Singh — AI/ML Developer"
                   className="w-full h-full object-cover object-center"
                 />
