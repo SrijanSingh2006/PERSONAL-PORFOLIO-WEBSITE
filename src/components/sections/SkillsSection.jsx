@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { SKILLS } from "../../data/portfolioData";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function SkillsSection() {
   const categories = [
@@ -10,12 +11,19 @@ export default function SkillsSection() {
     { key: "toolsAndTech", label: "Tools & Technologies", color: "from-blue-400/20 to-blue-400/5" }
   ];
 
+  const skillsIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  );
+
   return (
     <section id="skills" className="w-full max-w-5xl mx-auto px-6 py-24 relative z-10">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold tracking-tight mb-4 text-white drop-shadow-md">Technical Arsenal</h2>
-        <p className="text-white/80 font-light text-lg">The tools and technologies I use to build magic.</p>
-      </div>
+      <SectionHeader 
+        title="Technical Arsenal" 
+        subtitle="The tools and technologies I use to build magic."
+        icon={skillsIcon}
+        gradientClass="from-accent2/40 to-accent2/5"
+        glowClass="shadow-[0_0_40px_rgba(236,72,153,0.2)]"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories.map((cat, idx) => (

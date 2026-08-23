@@ -1,79 +1,205 @@
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { Github } from "../Icons";
 import { PROJECTS } from "../../data/portfolioData";
 
+
+const CARD_GRADIENT_COLORS = [
+  ["#6366f1", "#8b5cf6"],
+  ["#8b5cf6", "#22d3ee"],
+  ["#22d3ee", "#10b981"],
+  ["#f59e0b", "#ef4444"],
+  ["#ef4444", "#8b5cf6"],
+  ["#10b981", "#6366f1"],
+];
+
 export default function ProjectsSection({ onOpenModal }) {
-  const handleMouseMove = (e, cardRef) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    // Map absolute pixels to percentage for the gradient
-    const xPercent = (x / rect.width) * 100;
-    const yPercent = (y / rect.height) * 100;
-    cardRef.current.style.setProperty("--mouse-x", `${xPercent}%`);
-    cardRef.current.style.setProperty("--mouse-y", `${yPercent}%`);
-  };
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/SrijanSingh2006/repos?sort=updated&per_page=6")
+      .then((res) => res.json())
+      .then((data) => {
+        const fetched = Array.isArray(data)
+          ? data.map((repo) => ({
+              id: repo.id,
+              title: repo.name.replace(/-/g, " "),
+              badge: repo.language || "Open Source",
+              shortDescription: repo.description || "A project by Srijan Singh.",
+              description: repo.description || "A project by Srijan Singh.",
+              technologies: repo.topics?.length > 0 ? repo.topics : repo.language ? [repo.language] : [],
+              date: new Date(repo.updated_at).toLocaleDateString("en-US", { month: "short", year: "numeric" }),
+              githubLink: repo.html_url,
+            }))
+          : PROJECTS;
+        setProjects(fetched.length ? fetched : PROJECTS);
+        setLoading(false);
+      })
+      .catch(() => {
+        setProjects(PROJECTS);
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <section id="projects" className="w-full max-w-5xl mx-auto px-6 py-24 z-10 relative">
-      <div className="text-center mb-20">
-        <h2 className="text-5xl font-bold tracking-tight mb-4 text-magic-gradient">Magical Works</h2>
-        <p className="text-white/80 font-light text-lg">Architecting intelligence into production.</p>
-      </div>
+    <section id="projects" className="w-full py-28 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-[700px] h-[500px] rounded-full bg-[#8b5cf6]/5 blur-[120px] pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center mb-16"
+        >
+          <div className="section-label justify-center mb-4">Featured Work</div>
+          <h2 className="font-display text-4xl md:text-5xl font-black mb-4">
+            Creative <span className="gradient-text">Portfolio</span>
+          </h2>
+          <p className="text-textMuted max-w-2xl mx-auto text-base">
+            A curated selection of AI/ML projects and open-source contributions — pulled live from GitHub.
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {PROJECTS.map((project, idx) => {
-          const cardRef = useRef(null);
-          
-          return (
-            <motion.div 
-              key={project.id}
-              ref={cardRef}
-              onMouseMove={(e) => handleMouseMove(e, cardRef)}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: idx * 0.1 }}
-              onClick={() => onOpenModal(project)}
-              className="magical-glass rounded-3xl flex flex-col overflow-hidden group cursor-pointer relative h-[350px]"
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="relative">
+              <div className="w-14 h-14 border-2 border-[rgba(99,102,241,0.2)] rounded-full" />
+              <div className="w-14 h-14 border-t-2 border-[#6366f1] rounded-full animate-spin absolute inset-0" />
+            </div>
+          </div>
+        ) : (
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onOpenModal={onOpenModal}
+                colors={CARD_GRADIENT_COLORS[index % CARD_GRADIENT_COLORS.length]}
+              />
+            ))}
+          </motion.div>
+        )}
+
+        {!loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-14 flex justify-center"
+          >
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              href="https://github.com/SrijanSingh2006"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-outline flex items-center gap-2"
             >
-              {/* Abstract Bloom replacing the image */}
-              <div className="project-bloom"></div>
-
-              <div className="p-8 flex flex-col justify-end h-full relative z-10 bg-gradient-to-t from-black/40 to-transparent">
-                <span className="text-xs font-mono text-accent uppercase tracking-widest mb-3 block drop-shadow-md">
-                  {project.badge}
-                </span>
-                <div className="flex justify-between items-start gap-4 mb-4 relative z-20 pointer-events-auto">
-                  <h3 className="text-3xl font-bold text-white group-hover:text-magic-gradient transition-all duration-300 drop-shadow-lg">
-                    {project.title}
-                  </h3>
-                  {project.githubLink && (
-                    <a 
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="p-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white transition-all cursor-none"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                    </a>
-                  )}
-                </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map(tech => (
-                    <span key={tech} className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-xs font-mono text-white/90 shadow-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
+              <Github size={16} />
+              View All on GitHub
+              <ArrowRight size={16} />
+            </motion.a>
+          </motion.div>
+        )}
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, onOpenModal, colors }) {
+  const [from, to] = colors;
+
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 40 },
+        show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
+      }}
+      whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
+      onClick={() => onOpenModal(project)}
+      className="glass-card overflow-hidden group cursor-pointer flex flex-col h-full"
+      id={`project-card-${project.id}`}
+    >
+      <div
+        className="relative h-52 overflow-hidden flex items-center justify-center"
+        style={{ background: `linear-gradient(135deg, ${from}18, ${to}10)` }}
+      >
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `linear-gradient(${from}30 1px, transparent 1px), linear-gradient(90deg, ${from}30 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <motion.span
+          whileHover={{ rotate: 180, scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          className="font-black text-7xl select-none relative z-10"
+          style={{ color: `${from}50` }}
+        >
+          {"</>"}
+        </motion.span>
+        <div className="absolute top-4 left-4 z-10">
+          <span
+            className="text-xs font-bold px-3 py-1 rounded-full"
+            style={{ background: `${from}22`, border: `1px solid ${from}40`, color: from }}
+          >
+            {project.badge}
+          </span>
+        </div>
+        <div className="absolute top-4 right-4 z-10 text-xs text-textSubtle font-mono">{project.date}</div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 flex items-center justify-center z-20"
+          style={{ background: `linear-gradient(135deg, ${from}dd, ${to}cc)` }}
+        >
+          <span className="bg-white text-[#050816] font-bold text-sm px-6 py-2.5 rounded-full shadow-lg">
+            View Details
+          </span>
+        </motion.div>
+      </div>
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="font-display font-bold text-lg capitalize mb-2 group-hover:text-[#818cf8] transition-colors line-clamp-1">
+          {project.title}
+        </h3>
+        <p className="text-sm text-textMuted mb-4 line-clamp-2 flex-1 leading-relaxed">{project.description}</p>
+        {project.technologies?.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.technologies.slice(0, 3).map((tech) => (
+              <span key={tech} className="tech-tag">{tech}</span>
+            ))}
+            {project.technologies.length > 3 && <span className="tech-tag">+{project.technologies.length - 3}</span>}
+          </div>
+        )}
+        <div className="flex justify-between items-center mt-auto pt-4 border-t border-[rgba(99,102,241,0.1)]">
+          <span className="text-xs font-bold text-[#818cf8] flex items-center gap-1 group-hover:gap-2 transition-all">
+            Case Study <ArrowRight size={12} />
+          </span>
+          {project.githubLink && (
+            <motion.a
+              whileHover={{ scale: 1.2, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
+              href={project.githubLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="w-8 h-8 rounded-full glass border border-[rgba(99,102,241,0.2)] flex items-center justify-center text-textMuted hover:text-[#818cf8] hover:border-[rgba(99,102,241,0.5)] transition-all"
+            >
+              <Github size={14} />
+            </motion.a>
+          )}
+        </div>
+      </div>
+    </motion.div>
   );
 }

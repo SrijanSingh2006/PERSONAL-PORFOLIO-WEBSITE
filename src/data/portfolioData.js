@@ -140,3 +140,44 @@ export const CERTIFICATIONS = [
 ];
 
 export const SUMMARY = "Computer Science undergraduate with hands-on experience in Machine Learning, Deep Learning, Predictive Analytics, Natural Language Processing, Computer Vision, and Generative AI. Proficient in Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, OpenCV, and FastAPI, with practical experience in data preprocessing, data analysis, exploratory data analysis, feature engineering, machine learning model development, model training, model evaluation, performance analysis, and model deployment. Developed and deployed AI-driven solutions for predictive analytics, NLP, computer vision, document verification, and real-world data-driven applications, with experience integrating machine learning models into REST APIs and cloud-based environments using AWS S3. Strong foundation in Data Structures and Algorithms, DBMS, Operating Systems, Object-Oriented Programming, and software development.";
+
+export const PROFILE = {
+  name: "Srijan Singh",
+  role: "AI / ML Developer",
+  college: "SRM Institute of Science and Technology",
+  cgpa: "9.14/10",
+  email: "srijansingh2006@gmail.com",
+  phone: "9838027276",
+  location: "Chennai, India",
+  bio: "Computer Science undergraduate specializing in Machine Learning, Deep Learning, NLP, Computer Vision, and Generative AI. I build intelligent systems that turn complex data into powerful, deployable solutions.",
+  github: "https://github.com/SrijanSingh2006",
+  linkedin: "https://www.linkedin.com/in/srijan-singh-a50b12255/",
+  leetcode: "https://leetcode.com/u/Srijan2006/",
+};
+
+export const STATS = [
+  { value: "6+", label: "AI/ML Projects", caption: "End-to-end deployed" },
+  { value: "92.1%", label: "Model Accuracy", caption: "BiGRU NLP system" },
+  { value: "9.14", label: "CGPA", caption: "SRM University" },
+  { value: "2+", label: "Internships", caption: "ML & Full-Stack" },
+];
+
+export const ABOUT_PARAGRAPHS = [
+  "I'm a Computer Science undergraduate at SRM Institute of Science and Technology with a strong passion for building intelligent, data-driven systems.",
+  "My expertise spans Machine Learning, Deep Learning (RNN/LSTM/GRU), Natural Language Processing, Computer Vision, and Generative AI — from model development to production API deployment.",
+  "I've built and deployed real-world AI solutions including a multi-class emotion classifier (92.1% accuracy), a mental health predictive analytics system, an AI-powered AgriTech platform, and more."
+];
+
+export const SKILL_CATEGORIES = [
+  { name: "AI / ML", icon: "🧠", skills: ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Generative AI", "Predictive Analytics"] },
+  { name: "Frameworks", icon: "⚡", skills: ["TensorFlow", "Keras", "Scikit-learn", "PyTorch", "FastAPI", "Flask"] },
+  { name: "Languages", icon: "💻", skills: ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"] },
+  { name: "Tools & Cloud", icon: "☁️", skills: ["Docker", "AWS S3", "GCP", "Git", "MySQL", "MongoDB"] },
+];
+
+export const PROFILES = [
+  { name: "GitHub", url: "https://github.com/SrijanSingh2006", username: "SrijanSingh2006" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/srijan-singh-a50b12255/", username: "srijan-singh" },
+  { name: "LeetCode", url: "https://leetcode.com/u/Srijan2006/", username: "Srijan2006" },
+];
+

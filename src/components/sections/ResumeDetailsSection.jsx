@@ -1,10 +1,23 @@
 import { motion } from "framer-motion";
 import { SUMMARY, EDUCATION, CERTIFICATIONS } from "../../data/portfolioData";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function ResumeDetailsSection() {
+  const aboutIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  );
+
   return (
     <section id="about" className="w-full max-w-5xl mx-auto px-6 py-24 relative z-10 flex flex-col gap-24">
       
+      <SectionHeader 
+        title="About Me" 
+        subtitle="My background, education, and credentials."
+        icon={aboutIcon}
+        gradientClass="from-accent/40 to-accent/5"
+        glowClass="shadow-[0_0_40px_rgba(245,158,11,0.2)]"
+      />
+
       {/* Summary */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}

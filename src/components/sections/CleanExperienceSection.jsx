@@ -1,13 +1,21 @@
 import { motion } from "framer-motion";
 import { EXPERIENCE } from "../../data/portfolioData";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function CleanExperienceSection() {
+  const expIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+  );
+
   return (
     <section id="experience" className="w-full max-w-5xl mx-auto px-6 py-24 relative z-10">
-      <div className="mb-16 flex items-center gap-4">
-        <h2 className="text-3xl font-bold text-white tracking-wide drop-shadow-md">Experience</h2>
-        <div className="h-px flex-1 bg-gradient-to-r from-accent/50 to-transparent"></div>
-      </div>
+      <SectionHeader 
+        title="Experience" 
+        subtitle="Where I've made an impact."
+        icon={expIcon}
+        gradientClass="from-emerald-500/40 to-emerald-500/5"
+        glowClass="shadow-[0_0_40px_rgba(16,185,129,0.2)]"
+      />
 
       <div className="relative border-l-2 border-white/20 ml-3 md:ml-6 flex flex-col gap-12">
         {EXPERIENCE.map((exp, i) => (
