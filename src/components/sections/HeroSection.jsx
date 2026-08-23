@@ -46,6 +46,10 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
+          <motion.div variants={itemVariants} className="mb-4">
+            <span className="font-mono text-lg md:text-xl text-[#a5b4fc]">Hi, I am Srijan Singh.</span>
+          </motion.div>
+
           <motion.h1
             variants={itemVariants}
             className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6"

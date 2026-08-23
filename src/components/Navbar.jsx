@@ -49,7 +49,7 @@ export default function Navbar() {
               S
             </div>
             <span className="font-display font-extrabold text-xl tracking-tight gradient-text">
-              Srijan.
+              Srijan Singh.
             </span>
           </motion.button>
 
