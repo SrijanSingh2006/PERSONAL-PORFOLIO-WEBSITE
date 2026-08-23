@@ -153,7 +153,9 @@ function ProjectCard({ project, onOpenModal, colors }) {
         <h3 className="font-display font-bold text-lg capitalize mb-2 group-hover:text-[#818cf8] transition-colors line-clamp-1">
           {project.title}
         </h3>
-        <p className="text-sm text-textMuted mb-4 line-clamp-2 flex-1 leading-relaxed">{project.description}</p>
+        <div className="text-sm text-textMuted mb-4 flex-1 leading-relaxed overflow-y-auto max-h-[100px] pr-2">
+          {project.description}
+        </div>
         {project.technologies?.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.technologies.slice(0, 3).map((tech) => (
