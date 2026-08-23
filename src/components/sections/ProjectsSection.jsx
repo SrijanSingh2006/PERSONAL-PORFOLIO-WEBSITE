@@ -19,31 +19,9 @@ export default function ProjectsSection({ onOpenModal }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/SrijanSingh2006/repos?sort=updated&per_page=8")
-      .then((res) => res.json())
-      .then((data) => {
-        const fetched = Array.isArray(data)
-          ? data
-              .filter((repo) => repo.name !== "SrijanSingh2006")
-              .slice(0, 6)
-              .map((repo) => ({
-              id: repo.id,
-              title: repo.name.replace(/-/g, " "),
-              badge: repo.language || "Open Source",
-              shortDescription: repo.description || "A project by Srijan Singh.",
-              description: repo.description || "A project by Srijan Singh.",
-              technologies: repo.topics?.length > 0 ? repo.topics : repo.language ? [repo.language] : [],
-              date: new Date(repo.updated_at).toLocaleDateString("en-US", { month: "short", year: "numeric" }),
-              githubLink: repo.html_url,
-            }))
-          : PROJECTS;
-        setProjects(fetched.length ? fetched : PROJECTS);
-        setLoading(false);
-      })
-      .catch(() => {
-        setProjects(PROJECTS);
-        setLoading(false);
-      });
+    // Directly use the top curated projects instead of fetching recent random repos
+    setProjects(PROJECTS);
+    setLoading(false);
   }, []);
 
   return (
