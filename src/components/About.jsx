@@ -50,7 +50,6 @@ export default function About() {
             {ABOUT_PARAGRAPHS[3]}
           </p>
 
-          {/* Key Competencies 2x2 */}
           <div className="competencies-grid">
             {highlights.map((item, idx) => {
               const IconComp = item.icon;
@@ -69,7 +68,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Credentials Side Card */}
         <div className="about-card-column">
           <div className="profile-glass-card">
             <div className="card-top-header">

@@ -22,7 +22,6 @@ export default function ProjectModal({ project, onClose }) {
   return (
     <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        {/* Modal Header */}
         <div className="modal-header">
           <div className="modal-header-left">
             <div className="modal-category-badge">{project.badge}</div>
@@ -57,7 +56,6 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        {/* Highlight Metric Banner */}
         <div className="modal-metric-banner">
           <div className="metric-icon-wrap">
             <Award size={20} />
@@ -68,15 +66,12 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        {/* Modal Scrollable Body */}
         <div className="modal-body-content">
-          {/* Overview */}
           <div className="modal-section">
             <h3 className="section-label">OVERVIEW</h3>
             <p className="section-text">{project.shortDescription}</p>
           </div>
 
-          {/* Problem & Solution Grid */}
           <div className="modal-two-col-grid">
             <div className="prob-sol-card problem">
               <div className="prob-sol-head">
@@ -95,7 +90,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Architecture / Pipeline Diagram */}
           <div className="modal-section">
             <h3 className="section-label">SYSTEM ARCHITECTURE & PIPELINE</h3>
             <div className="architecture-box">
@@ -121,7 +115,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Key Features */}
           <div className="modal-section">
             <h3 className="section-label">KEY FEATURES</h3>
             <div className="features-chips-grid">
@@ -134,7 +127,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* Technologies Used */}
           <div className="modal-section">
             <h3 className="section-label">TECHNOLOGIES & FRAMEWORKS</h3>
             <div className="tech-badge-cloud">
@@ -146,7 +138,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* ML Models & Optimization */}
           {project.mlModelDetails && (
             <div className="modal-section">
               <h3 className="section-label">ML MODEL & OPTIMIZATION</h3>
@@ -175,7 +166,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           )}
 
-          {/* Results */}
           <div className="modal-section">
             <h3 className="section-label">EVALUATION RESULTS</h3>
             <div className="results-box">
@@ -184,7 +174,6 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* What I Learned */}
           <div className="modal-section">
             <h3 className="section-label">KEY TAKEAWAYS & WHAT I LEARNED</h3>
             <div className="learnings-box">
@@ -194,7 +183,6 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        {/* Modal Footer */}
         <div className="modal-footer">
           <div className="footer-left">
             <span className="repo-note">Ready to review implementation details & code?</span>

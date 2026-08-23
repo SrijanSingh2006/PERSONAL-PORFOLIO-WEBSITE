@@ -27,21 +27,18 @@ export default function HeroSection() {
       id="hero"
       className="w-full min-h-screen flex items-center pt-20 hero-gradient grid-bg relative overflow-hidden"
     >
-      {/* Animated Blobs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#6366f1]/10 blur-[120px] pointer-events-none animate-float" style={{ animationDelay: "0s" }} />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#8b5cf6]/8 blur-[100px] pointer-events-none animate-float" style={{ animationDelay: "2s" }} />
       <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-[#22d3ee]/6 blur-[80px] pointer-events-none animate-float" style={{ animationDelay: "1s" }} />
 
       <div className="w-full max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
 
-        {/* LEFT: Text Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
           className="flex flex-col items-start"
         >
-          {/* Live badge */}
           <motion.div variants={itemVariants} className="flex items-center gap-2 mb-8">
             <div className="flex items-center gap-2 glass px-4 py-2 rounded-full border border-[rgba(99,102,241,0.25)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
@@ -49,7 +46,6 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             variants={itemVariants}
             className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6"
@@ -64,7 +60,6 @@ export default function HeroSection() {
             <span className="gradient-text">Data & AI</span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             variants={itemVariants}
             className="text-lg text-textMuted max-w-xl mb-10 leading-relaxed"
@@ -72,7 +67,6 @@ export default function HeroSection() {
             {PROFILE.bio}
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mb-12">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
@@ -113,7 +107,6 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Stats Row */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full"
@@ -132,25 +125,21 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT: Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ type: "spring", duration: 1.4, bounce: 0.3, delay: 0.3 }}
           className="flex justify-center lg:justify-end w-full relative"
         >
-          {/* Glow ring behind image */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#6366f1]/30 to-[#8b5cf6]/20 blur-[60px]" />
           </div>
 
-          {/* Floating Image */}
           <motion.div
             animate={{ y: [0, -14, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             className="relative z-10"
           >
-            {/* Gradient border ring */}
             <div className="w-[340px] h-[420px] md:w-[380px] md:h-[460px] rounded-[2.5rem] p-[2px] bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#22d3ee] shadow-[0_0_60px_rgba(99,102,241,0.4)]">
               <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-[#0d1117]">
                 <img
@@ -161,7 +150,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Floating badge — Spark icon */}
             <motion.div
               animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -171,7 +159,6 @@ export default function HeroSection() {
               <span className="text-xs font-bold text-textMain">AI / ML</span>
             </motion.div>
 
-            {/* Floating badge — CGPA */}
             <motion.div
               animate={{ rotate: [0, -8, 8, 0], scale: [1, 1.04, 1] }}
               transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
@@ -184,7 +171,6 @@ export default function HeroSection() {
 
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

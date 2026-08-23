@@ -32,7 +32,6 @@ export default function Contact({ onOpenResume }) {
             I'm open to AI/ML Developer opportunities, Machine Learning roles, software engineering positions, internships, and collaborative projects.
           </p>
 
-          {/* Quick Contact Cards */}
           <div className="contact-info-boxes">
             <div className="contact-card-box">
               <div className="box-left">
@@ -92,7 +91,6 @@ export default function Contact({ onOpenResume }) {
           </div>
         </div>
 
-        {/* Action Panel */}
         <div className="contact-actions-panel">
           <div className="actions-glass-card">
             <div className="card-top-header">

@@ -21,7 +21,6 @@ export default function ResumeModal({ isOpen, onClose }) {
   return (
     <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-container resume-modal-box" onClick={(e) => e.stopPropagation()}>
-        {/* Modal Top */}
         <div className="modal-header">
           <div className="modal-header-left">
             <div className="modal-category-badge">CURRICULUM VITAE</div>
@@ -43,22 +42,18 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Modal Body */}
         <div className="modal-body-content resume-modal-scroll">
-          {/* Header Info */}
           <div className="resume-contact-bar">
             <div className="r-item"><Mail size={14} /> <span>{PROFILE.email}</span></div>
             <div className="r-item"><Phone size={14} /> <span>+91 {PROFILE.phone}</span></div>
             <div className="r-item"><MapPin size={14} /> <span>{PROFILE.location}</span></div>
           </div>
 
-          {/* Summary */}
           <div className="resume-block">
             <h3 className="resume-block-title">PROFESSIONAL SUMMARY</h3>
             <p className="resume-text">{PROFILE.bio}</p>
           </div>
 
-          {/* Education */}
           <div className="resume-block">
             <h3 className="resume-block-title">EDUCATION</h3>
             {EDUCATION.map((edu, idx) => (
@@ -73,7 +68,6 @@ export default function ResumeModal({ isOpen, onClose }) {
             ))}
           </div>
 
-          {/* Experience */}
           <div className="resume-block">
             <h3 className="resume-block-title">EXPERIENCE</h3>
             {EXPERIENCE.map((exp, idx) => (
@@ -95,7 +89,6 @@ export default function ResumeModal({ isOpen, onClose }) {
             ))}
           </div>
 
-          {/* Technical Skills */}
           <div className="resume-block">
             <h3 className="resume-block-title">TECHNICAL SKILLS</h3>
             <div className="resume-skills-grid">
@@ -108,7 +101,6 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Certifications */}
           <div className="resume-block">
             <h3 className="resume-block-title">CERTIFICATIONS</h3>
             <div className="resume-certs-list">
@@ -125,7 +117,6 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="modal-footer">
           <div className="footer-left">
             <span>SRMIST Kattankulathur • Chennai, India</span>

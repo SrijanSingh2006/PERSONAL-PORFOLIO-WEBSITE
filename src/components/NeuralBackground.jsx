@@ -51,7 +51,6 @@ export default function NeuralBackground() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw connections
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
 
@@ -80,7 +79,6 @@ export default function NeuralBackground() {
           }
         }
 
-        // Mouse connection
         const mdx = p1.x - mouse.x;
         const mdy = p1.y - mouse.y;
         const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
@@ -94,7 +92,6 @@ export default function NeuralBackground() {
           ctx.stroke();
         }
 
-        // Draw particle node
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(183, 255, 74, ${p1.alpha})`;

@@ -25,12 +25,10 @@ export default function FigmaAboutSection() {
 
   return (
     <section id="about" className="w-full py-28 section-gradient relative overflow-hidden">
-      {/* Background blob */}
       <div className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-[#6366f1]/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Section Label */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -42,7 +40,6 @@ export default function FigmaAboutSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-          {/* LEFT: About Card */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,7 +55,6 @@ export default function FigmaAboutSection() {
               {SUMMARY.slice(0, 320)}...
             </p>
 
-            {/* Quick facts row */}
             <div className="flex flex-wrap gap-4 mb-10">
               {[
                 { emoji: "🎓", label: "B.Tech CSE", sub: "SRM University" },
@@ -90,7 +86,6 @@ export default function FigmaAboutSection() {
             </motion.button>
           </motion.div>
 
-          {/* RIGHT: Skill Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {SKILL_GROUPS.map((group, i) => (
               <motion.div

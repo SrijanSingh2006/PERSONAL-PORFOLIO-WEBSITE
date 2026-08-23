@@ -39,7 +39,6 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -54,7 +53,6 @@ export default function Navbar() {
             </span>
           </motion.button>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1">
             {links.map((link) => (
               <motion.button
@@ -69,7 +67,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -81,7 +78,6 @@ export default function Navbar() {
             </motion.button>
           </div>
 
-          {/* Mobile Hamburger */}
           <button
             className="md:hidden text-textMuted hover:text-textMain transition-colors p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -92,7 +88,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

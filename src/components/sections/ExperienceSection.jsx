@@ -9,7 +9,7 @@ export default function ExperienceSection() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* Section Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,20 +18,19 @@ export default function ExperienceSection() {
         >
           <div className="section-label">My Journey</div>
           <h2 className="font-display text-4xl md:text-5xl font-black mt-2">
-            Experience &amp; <span className="gradient-text">Education</span>
+            Professional <span className="gradient-text">Experience</span>
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-          {/* Experience Column */}
+
           <div className="lg:col-span-2">
             <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
               <Briefcase size={16} className="text-[#6366f1]" />
               Work Experience
             </h3>
             <div className="relative">
-              {/* Timeline line */}
               <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-transparent" />
               <div className="flex flex-col gap-6">
                 {EXPERIENCE.map((exp, i) => (
@@ -43,7 +42,6 @@ export default function ExperienceSection() {
                     transition={{ delay: i * 0.1, type: "spring", stiffness: 80, damping: 18 }}
                     className="pl-14 relative"
                   >
-                    {/* Timeline dot */}
                     <div className="absolute left-3 top-5 w-5 h-5 rounded-full bg-[#050816] border-2 border-[#6366f1] flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-[#6366f1]" />
                     </div>
@@ -79,7 +77,7 @@ export default function ExperienceSection() {
 
           </div>
 
-          {/* Certifications Column */}
+
           <div>
             <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
               📜 Certifications

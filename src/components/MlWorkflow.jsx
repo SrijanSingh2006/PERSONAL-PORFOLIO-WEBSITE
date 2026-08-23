@@ -16,7 +16,6 @@ export default function MlWorkflow() {
         </p>
       </div>
 
-      {/* Interactive Horizontal Pipeline Visualizer */}
       <div className="pipeline-flow-container">
         <div className="pipeline-steps-track">
           {ML_WORKFLOW.map((step, idx) => {
@@ -42,7 +41,6 @@ export default function MlWorkflow() {
         </div>
       </div>
 
-      {/* Active Step Deep-Dive Inspector Card */}
       <div className="workflow-detail-card">
         <div className="workflow-detail-grid">
           <div className="detail-left">

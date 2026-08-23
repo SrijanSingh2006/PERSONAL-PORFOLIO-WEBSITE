@@ -119,7 +119,6 @@ developer = {
             </a>
           </div>
 
-          {/* Quick Stats Grid */}
           <div className="stats-row">
             {STATS.slice(0, 4).map((stat, i) => (
               <div className="stat-card" key={i}>
@@ -131,7 +130,6 @@ developer = {
           </div>
         </div>
 
-        {/* Interactive Terminal Card */}
         <div className="hero-visual">
           <div className="terminal-window">
             <div className="terminal-header">

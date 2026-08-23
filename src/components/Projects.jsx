@@ -44,7 +44,6 @@ export default function Projects({ onSelectProject }) {
         </a>
       </div>
 
-      {/* Category Filter Pills */}
       <div className="project-filter-bar">
         {filterCategories.map((cat) => (
           <button
@@ -57,7 +56,6 @@ export default function Projects({ onSelectProject }) {
         ))}
       </div>
 
-      {/* Projects Grid */}
       <div className="projects-grid">
         {filteredProjects.map((project, index) => (
           <article

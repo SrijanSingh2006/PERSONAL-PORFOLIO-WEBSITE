@@ -13,13 +13,11 @@ export default function Footer() {
 
   return (
     <footer className="w-full pt-16 pb-8 bg-[#030712] border-t border-[rgba(99,102,241,0.12)] relative overflow-hidden">
-      {/* Top gradient line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#6366f1] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
 
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center font-black text-white text-sm">
@@ -32,7 +30,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-display font-bold text-sm text-textMain uppercase tracking-widest mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
@@ -48,7 +45,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-display font-bold text-sm text-textMain uppercase tracking-widest mb-4">Get In Touch</h4>
             <div className="flex flex-col gap-3">
@@ -81,7 +77,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(99,102,241,0.1)]">
           <p className="text-xs text-textSubtle">
             © {new Date().getFullYear()} <span className="text-textMuted font-semibold">{PROFILE.name}</span>. Built with React & TailwindCSS.

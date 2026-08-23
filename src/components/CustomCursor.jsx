@@ -7,7 +7,6 @@ export default function CustomCursor() {
   const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
-    // Only show custom cursor on desktop
     const checkDesktop = () => setIsDesktop(window.matchMedia("(min-width: 768px)").matches);
     checkDesktop();
     window.addEventListener("resize", checkDesktop);
@@ -17,7 +16,6 @@ export default function CustomCursor() {
       return;
     }
 
-    // Hide default cursor globally
     const style = document.createElement("style");
     style.id = "custom-cursor-style";
     style.innerHTML = `* { cursor: none !important; }`;

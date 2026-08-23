@@ -5,7 +5,6 @@ export default function PageLoader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Hide loader after 1.8 seconds to allow animations to play
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1800);
@@ -21,7 +20,6 @@ export default function PageLoader() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[99999] bg-[#050816] flex flex-col items-center justify-center overflow-hidden"
         >
-          {/* Animated background blobs */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -35,7 +33,6 @@ export default function PageLoader() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative z-10 flex flex-col items-center"
           >
-            {/* Logo Mark */}
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center font-black text-white text-3xl shadow-[0_0_30px_rgba(99,102,241,0.5)] mb-6 relative overflow-hidden">
               <motion.div
                 initial={{ top: "100%" }}
@@ -46,7 +43,6 @@ export default function PageLoader() {
               S
             </div>
             
-            {/* Loading text with animated dots */}
             <div className="flex items-center gap-1 text-[#a5b4fc] font-semibold tracking-widest text-sm uppercase">
               <span>Initializing</span>
               <motion.span
@@ -70,7 +66,6 @@ export default function PageLoader() {
             </div>
           </motion.div>
 
-          {/* Bottom Progress Bar */}
           <div className="absolute bottom-0 left-0 w-full h-1 bg-[rgba(99,102,241,0.1)]">
             <motion.div
               initial={{ width: "0%" }}

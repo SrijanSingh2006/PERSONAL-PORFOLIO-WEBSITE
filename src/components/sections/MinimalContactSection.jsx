@@ -6,12 +6,10 @@ import { PROFILE } from "../../data/portfolioData";
 export default function MinimalContactSection() {
   return (
     <section id="contact" className="w-full py-28 section-gradient relative overflow-hidden">
-      {/* Background blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#6366f1]/8 blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +27,6 @@ export default function MinimalContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-          {/* Left: Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -37,7 +34,6 @@ export default function MinimalContactSection() {
             transition={{ type: "spring", stiffness: 60, damping: 20 }}
             className="lg:col-span-2 flex flex-col gap-5"
           >
-            {/* Contact Items */}
             {[
               {
                 icon: <Mail size={18} />,
@@ -89,7 +85,6 @@ export default function MinimalContactSection() {
               </motion.div>
             ))}
 
-            {/* Social Links */}
             <motion.div
               whileHover={{ scale: 1.01 }}
               className="glass-card p-5 mt-2"
@@ -115,7 +110,6 @@ export default function MinimalContactSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

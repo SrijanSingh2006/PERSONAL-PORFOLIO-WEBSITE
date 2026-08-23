@@ -37,7 +37,6 @@ export default function Skills() {
         <h2 className="section-title">Tools & technologies I use across the AI/ML lifecycle.</h2>
       </div>
 
-      {/* Filter and Search Bar */}
       <div className="skills-toolbar">
         <div className="skills-filter-tabs">
           <button
@@ -74,7 +73,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* Skills Grid */}
       <div className="skills-grid">
         {filteredCategories.map((cat) => {
           const IconComponent = iconMap[cat.icon] || Code2;

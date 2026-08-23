@@ -15,7 +15,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Core Firefly */}
       <motion.div
         className="fixed top-0 left-0 w-3 h-3 rounded-full bg-yellow-200 pointer-events-none z-[9999] shadow-[0_0_15px_#fcd34d]"
         animate={{
@@ -25,7 +24,6 @@ export default function CustomCursor() {
         transition={{ type: "tween", duration: 0.1 }}
       />
       
-      {/* Firefly Glow */}
       <motion.div
         className="fixed top-0 left-0 w-40 h-40 rounded-full bg-accent/20 blur-[25px] pointer-events-none z-[9998]"
         animate={{

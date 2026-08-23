@@ -11,7 +11,6 @@ export default function SectionHeader({ title, subtitle, icon: Icon, gradientCla
         className={`w-24 h-24 mb-6 rounded-3xl flex items-center justify-center magical-glass relative overflow-hidden group pointer-events-auto cursor-none ${glowClass}`}
       >
         <div className={`absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
-        {/* Glow behind icon */}
         <div className="absolute inset-0 bg-white/5 blur-xl"></div>
         <div className="relative z-10 text-white/90 group-hover:text-white transition-colors duration-300 transform group-hover:scale-110">
           {Icon}

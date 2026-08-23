@@ -19,7 +19,6 @@ export default function ProjectsSection({ onOpenModal }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Directly use the top curated projects instead of fetching recent random repos
     setProjects(PROJECTS);
     setLoading(false);
   }, []);
