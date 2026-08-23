@@ -19,11 +19,14 @@ export default function ProjectsSection({ onOpenModal }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/SrijanSingh2006/repos?sort=updated&per_page=6")
+    fetch("https://api.github.com/users/SrijanSingh2006/repos?sort=updated&per_page=8")
       .then((res) => res.json())
       .then((data) => {
         const fetched = Array.isArray(data)
-          ? data.map((repo) => ({
+          ? data
+              .filter((repo) => repo.name !== "SrijanSingh2006")
+              .slice(0, 6)
+              .map((repo) => ({
               id: repo.id,
               title: repo.name.replace(/-/g, " "),
               badge: repo.language || "Open Source",
