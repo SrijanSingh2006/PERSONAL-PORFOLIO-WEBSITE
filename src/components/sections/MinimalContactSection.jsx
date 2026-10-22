@@ -45,8 +45,8 @@ export default function MinimalContactSection() {
               {
                 icon: <Phone size={18} />,
                 label: "Call Me",
-                value: `+91 ${PROFILE.phone}`,
-                href: `tel:+91${PROFILE.phone}`,
+                value: PROFILE.phone,
+                href: `tel:+919838027276`,
                 color: "#8b5cf6",
               },
               {

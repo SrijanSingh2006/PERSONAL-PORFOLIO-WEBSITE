@@ -42,7 +42,7 @@ export default function HeroSection() {
           <motion.div variants={itemVariants} className="flex items-center gap-2 mb-8">
             <div className="flex items-center gap-2 glass px-4 py-2 rounded-full border border-[rgba(99,102,241,0.25)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-              <span className="text-xs font-semibold text-textMuted tracking-widest uppercase">Available for Opportunities</span>
+              <span className="text-xs font-semibold text-textMuted tracking-widest uppercase">AI Generalist & Developer • Designing for Creators & Engineers</span>
             </div>
           </motion.div>
 
@@ -56,12 +56,12 @@ export default function HeroSection() {
           >
             Building{" "}
             <span className="gradient-text text-glow">
-              Intelligent
+              AI Tools
             </span>
             <br />
-            Systems with
+            & Frictionless Workflows for
             <br />
-            <span className="gradient-text">Data & AI</span>
+            <span className="gradient-text">Design & Engineering</span>
           </motion.h1>
 
           <motion.p
@@ -81,6 +81,15 @@ export default function HeroSection() {
             >
               View Projects
               <ArrowDown size={16} />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => scrollTo("resume")}
+              className="btn-outline gap-2"
+              id="hero-resume-btn"
+            >
+              View Resume 📄
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -148,7 +157,7 @@ export default function HeroSection() {
               <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-[#0d1117]">
                 <img
                   src={`${import.meta.env.BASE_URL}profile.png`}
-                  alt="Srijan Singh — AI/ML Developer"
+                  alt="Srijan Singh - AI Developer"
                   className="w-full h-full object-cover object-center"
                 />
               </div>

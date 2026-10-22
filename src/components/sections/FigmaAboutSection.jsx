@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SUMMARY, SKILLS, EXPERIENCE, CERTIFICATIONS } from "../../data/portfolioData";
+import { SUMMARY, SKILL_CATEGORIES, EXPERIENCE, CERTIFICATIONS } from "../../data/portfolioData";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -10,12 +10,6 @@ const fadeUp = {
   }),
 };
 
-const SKILL_GROUPS = [
-  { title: "AI / ML", icon: "🧠", color: "#6366f1", skills: SKILLS.technical.slice(0, 5) },
-  { title: "Frameworks", icon: "⚡", color: "#8b5cf6", skills: SKILLS.languagesAndFrameworks.slice(0, 5) },
-  { title: "Languages", icon: "💻", color: "#22d3ee", skills: SKILLS.programming },
-  { title: "Tools & Cloud", icon: "☁️", color: "#10b981", skills: SKILLS.toolsAndTech.slice(0, 5) },
-];
 
 export default function FigmaAboutSection() {
   const scrollTo = (id) => {
@@ -52,15 +46,15 @@ export default function FigmaAboutSection() {
             </h2>
 
             <p className="text-textMuted leading-relaxed mb-8 text-base">
-              {SUMMARY.slice(0, 320)}...
+              {SUMMARY}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-10">
               {[
-                { emoji: "🎓", label: "B.Tech CSE", sub: "SRM University" },
-                { emoji: "📍", label: "Chennai", sub: "India" },
-                { emoji: "💼", label: `${EXPERIENCE.length} Internships`, sub: "ML & Dev" },
-                { emoji: "📜", label: `${CERTIFICATIONS.length} Certs`, sub: "SAP, NPTEL" },
+                { emoji: "🎓", label: "B.Tech CSE", sub: "9.14 CGPA • SRMIST" },
+                { emoji: "📍", label: "Bangalore / Chennai", sub: "India" },
+                { emoji: "💼", label: "3 Remote Internships", sub: "AI & Workflows" },
+                { emoji: "📜", label: "7 Certifications", sub: "SAP, McKinsey, IIT" },
               ].map((fact, i) => (
                 <motion.div
                   key={i}
@@ -87,9 +81,9 @@ export default function FigmaAboutSection() {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {SKILL_GROUPS.map((group, i) => (
+            {SKILL_CATEGORIES.map((group, i) => (
               <motion.div
-                key={group.title}
+                key={group.title || group.name}
                 custom={i}
                 variants={fadeUp}
                 initial="hidden"

@@ -9,6 +9,7 @@ const CARD_GRADIENT_COLORS = [
   ["#6366f1", "#8b5cf6"],
   ["#8b5cf6", "#22d3ee"],
   ["#22d3ee", "#10b981"],
+  ["#38bdf8", "#6366f1"],
   ["#f59e0b", "#ef4444"],
   ["#ef4444", "#8b5cf6"],
   ["#10b981", "#6366f1"],
@@ -35,10 +36,10 @@ export default function ProjectsSection({ onOpenModal }) {
         >
           <div className="section-label justify-center mb-4">Featured Work</div>
           <h2 className="font-display text-4xl md:text-5xl font-black mb-4">
-            Creative <span className="gradient-text">Portfolio</span>
+            Engineering & AI <span className="gradient-text">Portfolio</span>
           </h2>
           <p className="text-textMuted max-w-2xl mx-auto text-base">
-            A curated selection of AI/ML projects and open-source contributions — pulled live from GitHub.
+            A curated showcase of 7 platforms spanning Generative AI workflows, distributed queue engines, Computer Vision, and full stack utilities.
           </p>
         </motion.div>
 

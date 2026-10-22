@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({ onOpenResume }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -23,6 +23,7 @@ export default function Navbar() {
     { label: "About", id: "about" },
     { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
+    { label: "Resume", id: "resume" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -71,6 +72,14 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
+              onClick={onOpenResume || (() => scrollTo("resume"))}
+              className="btn-outline !py-2 !px-4 !text-xs font-semibold"
+            >
+              Resume 📄
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => scrollTo("contact")}
               className="btn-primary !py-2 !px-5 !text-sm"
             >
@@ -108,8 +117,18 @@ export default function Navbar() {
                 </button>
               ))}
               <button
+                onClick={() => {
+                  if (onOpenResume) onOpenResume();
+                  else scrollTo("resume");
+                  setMobileOpen(false);
+                }}
+                className="btn-outline mt-3 w-full !py-2.5 text-xs font-semibold"
+              >
+                View Resume 📄
+              </button>
+              <button
                 onClick={() => scrollTo("contact")}
-                className="btn-primary mt-3 w-full !py-2.5 text-sm"
+                className="btn-primary mt-2 w-full !py-2.5 text-sm"
               >
                 Hire Me
               </button>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { Briefcase, MapPin, Calendar, Award, ExternalLink } from "lucide-react";
 import { EXPERIENCE, CERTIFICATIONS } from "../../data/portfolioData";
 
 export default function ExperienceSection() {
@@ -8,27 +8,27 @@ export default function ExperienceSection() {
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full bg-[#6366f1]/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="section-label">My Journey</div>
+          <div className="section-label">Practical Experience</div>
           <h2 className="font-display text-4xl md:text-5xl font-black mt-2">
-            Professional <span className="gradient-text">Experience</span>
+            Internship <span className="gradient-text">Experience</span>
           </h2>
+          <p className="text-textMuted max-w-2xl mt-3 text-sm sm:text-base">
+            Hands-on remote software, AI tool exploration, and workflow optimization internships focused on scalable scripting, internal utilities, and production web engineering.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
-
+          {/* Internships Column */}
           <div className="lg:col-span-2">
             <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
               <Briefcase size={16} className="text-[#6366f1]" />
-              Work Experience
+              Internship History & Roles
             </h3>
             <div className="relative">
               <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-transparent" />
@@ -48,7 +48,7 @@ export default function ExperienceSection() {
 
                     <motion.div
                       whileHover={{ x: 4 }}
-                      className="glass-card p-6"
+                      className="glass-card p-6 border border-[rgba(99,102,241,0.2)]"
                     >
                       <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                         <div>
@@ -56,7 +56,20 @@ export default function ExperienceSection() {
                           <p className="text-[#818cf8] font-semibold text-sm">{exp.company}</p>
                         </div>
                         <div className="flex flex-col items-end gap-1">
-                          <span className="tech-tag">{exp.type}</span>
+                          {exp.certificateUrl ? (
+                            <a
+                              href={exp.certificateUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="tech-tag hover:border-[#818cf8] hover:text-[#818cf8] transition-colors flex items-center gap-1"
+                              title="View Verified Certificate"
+                            >
+                              <span>{exp.type}</span>
+                              <span className="text-[10px]">↗</span>
+                            </a>
+                          ) : (
+                            <span className="tech-tag">{exp.type}</span>
+                          )}
                           <span className="flex items-center gap-1 text-xs text-textSubtle">
                             <Calendar size={10} />
                             {exp.date}
@@ -67,20 +80,47 @@ export default function ExperienceSection() {
                           </span>
                         </div>
                       </div>
-                      <p className="text-sm text-textMuted leading-relaxed line-clamp-3">{exp.description}</p>
+
+                      {/* Scope Overview (One distinct sentence, no duplication) */}
+                      {exp.overview && (
+                        <p className="text-xs sm:text-sm text-[#a5b4fc] font-medium leading-relaxed mb-3">
+                          {exp.overview}
+                        </p>
+                      )}
+
+                      {/* Verified Resume Highlights as clean bullet points */}
+                      {exp.highlights && exp.highlights.length > 0 && (
+                        <div className="space-y-2 border-t border-[rgba(99,102,241,0.12)] pt-3">
+                          {exp.highlights.map((h, hIdx) => (
+                            <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-textMuted leading-relaxed">
+                              <span className="text-[#818cf8] font-bold mt-0.5">▹</span>
+                              <span>{h}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Technology Chips */}
+                      {exp.technologies && exp.technologies.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/5">
+                          {exp.technologies.map((t) => (
+                            <span key={t} className="tech-tag text-[10px] !py-0.5 !px-2">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   </motion.div>
                 ))}
               </div>
             </div>
-
-
           </div>
 
-
+          {/* Certifications Column */}
           <div>
             <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
-              📜 Certifications
+              📜 Verified Credentials
             </h3>
             <div className="flex flex-col gap-4">
               {CERTIFICATIONS.map((cert, i) => (
@@ -106,10 +146,28 @@ export default function ExperienceSection() {
                     </span>
                     <span className="text-xs text-textSubtle font-mono">{cert.date}</span>
                   </div>
-                  <h4 className="font-display font-bold text-sm text-textMain mt-2 mb-2 leading-tight">
+                  <h4 className="font-display font-bold text-sm text-textMain mt-2 mb-1.5 leading-tight">
                     {cert.title}
                   </h4>
-                  <p className="text-xs text-textMuted line-clamp-2 leading-relaxed">{cert.description}</p>
+                  {cert.focusDomain && (
+                    <p className="text-[11px] font-mono text-[#818cf8] mb-1.5 leading-snug">
+                      {cert.focusDomain}
+                    </p>
+                  )}
+                  <p className="text-xs text-textMuted line-clamp-2 leading-relaxed mb-2.5">
+                    {cert.description}
+                  </p>
+                  {cert.certificateUrl && (
+                    <a
+                      href={cert.certificateUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#818cf8] hover:text-[#22d3ee] transition-colors"
+                    >
+                      <span>Verify Certificate</span>
+                      <span className="text-[10px]">↗</span>
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </div>

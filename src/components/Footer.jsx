@@ -23,17 +23,17 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center font-black text-white text-sm">
                 S
               </div>
-              <span className="font-display font-extrabold text-xl tracking-tight gradient-text">Srijan.</span>
+              <span className="font-display font-extrabold text-xl tracking-tight gradient-text">Srijan Singh.</span>
             </div>
             <p className="text-sm text-textMuted leading-relaxed max-w-xs">
-              AI/ML Developer building intelligent systems with Machine Learning, Deep Learning, and Generative AI.
+              AI Generalist & Developer building frictionless tools, generative workflows, and accessible web applications.
             </p>
           </div>
 
           <div>
             <h4 className="font-display font-bold text-sm text-textMain uppercase tracking-widest mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              {["hero", "about", "projects", "experience", "contact"].map((id) => (
+              {["hero", "about", "projects", "experience", "resume", "contact"].map((id) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
@@ -72,6 +72,15 @@ export default function Footer() {
               >
                 <Linkedin size={14} />
                 LinkedIn
+              </a>
+              <a
+                href={PROFILE.leetcode}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-sm text-textMuted hover:text-[#818cf8] transition-colors"
+              >
+                <span className="text-xs font-mono font-bold text-[#818cf8]">LC</span>
+                LeetCode
               </a>
             </div>
           </div>

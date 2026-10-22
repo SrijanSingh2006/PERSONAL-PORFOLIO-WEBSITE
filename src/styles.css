@@ -12,7 +12,7 @@
   --color-surfaceLight: #111827;
   --color-surfaceCard: rgba(13, 17, 23, 0.8);
 
-  /* Accent palette — Indigo → Violet → Cyan */
+  /* Accent palette: Indigo -> Violet -> Cyan */
   --color-primary: #6366f1;        /* Indigo */
   --color-primaryHover: #818cf8;
   --color-violet: #8b5cf6;
@@ -195,7 +195,7 @@
     color: #a5b4fc;
   }
 
-  /* Legacy aliases — copy styles from btn-primary/btn-outline/glass-card */
+  /* Legacy aliases: copy styles from btn-primary/btn-outline/glass-card */
   .picto-btn-primary {
     display: inline-flex;
     align-items: center;
