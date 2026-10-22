@@ -81,16 +81,9 @@ export default function ExperienceSection() {
                         </div>
                       </div>
 
-                      {/* Scope Overview (One distinct sentence, no duplication) */}
-                      {exp.overview && (
-                        <p className="text-xs sm:text-sm text-[#a5b4fc] font-medium leading-relaxed mb-3">
-                          {exp.overview}
-                        </p>
-                      )}
-
                       {/* Verified Resume Highlights as clean bullet points */}
                       {exp.highlights && exp.highlights.length > 0 && (
-                        <div className="space-y-2 border-t border-[rgba(99,102,241,0.12)] pt-3">
+                        <div className="space-y-2.5 pt-2">
                           {exp.highlights.map((h, hIdx) => (
                             <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-textMuted leading-relaxed">
                               <span className="text-[#818cf8] font-bold mt-0.5">▹</span>

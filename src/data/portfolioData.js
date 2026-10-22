@@ -469,7 +469,6 @@ export const EXPERIENCE = [
     type: "Remote Internship | Certificate",
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1I_2B9hjd6XQcvydrspvsg5dUjjd2550C/view?usp=sharing",
-    overview: "Researched emerging AI models and built Python automation scripts to eliminate workflow bottlenecks and accelerate concept to execution cycles.",
     highlights: [
       "Researched, evaluated, and rigorously tested emerging AI models, generative platforms, and automated ideation tools to solve workflow bottlenecks and accelerate concept to execution cycles.",
       "Designed and built simple, frictionless Python scripts and AI powered automation utilities that eliminated repetitive manual tasks across creative and data processing pipelines.",
@@ -485,7 +484,6 @@ export const EXPERIENCE = [
     type: "Remote Internship | Certificate",
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1mXx4R0Mr8xgY0qGclvHf_kTqi9cvtATP/view",
-    overview: "Built, customized, and deployed accessible internal web applications and interactive prototypes using JavaScript and React.js for immediate adoption by UI/UX teams.",
     highlights: [
       "Built, customized, and deployed accessible internal web applications, interactive prototypes, and lightweight utilities using JavaScript and React.js so tools were immediately usable by UI/UX designers.",
       "Developed and proposed streamlined workflows for integrating AI APIs and visualization components into existing design processes, from early ideation to final execution.",
@@ -501,7 +499,6 @@ export const EXPERIENCE = [
     type: "Remote Internship | Certificate",
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1S8na70Nu8c5CB89282aVpVc7tT7tZIOA/view?usp=sharing",
-    overview: "Observed and interviewed team members to uncover friction points, created step by step documentation, and presented updates to stakeholders.",
     highlights: [
       "Observed and interviewed team members across UI/UX, visual content, and operations to uncover day to day friction points, bottlenecks, and repetitive manual tasks.",
       "Created clear, comprehensive process documentation, step by step tutorials, and best-practice guides so non technical and creative teams could adopt new tools effortlessly.",
@@ -517,7 +514,6 @@ export const EXPERIENCE = [
     type: "Position of Responsibility",
     location: "Chennai, India",
     certificateUrl: null,
-    overview: "Partnered with student designers to identify creative bottlenecks, deploy web utilities, and test generative AI workflows.",
     highlights: [
       "Partnered with student designers, UI/UX teams, and developers to identify bottlenecks in creative event workflows and deploy simple web utilities using JavaScript and Python.",
       "Explored and tested new generative AI and visualization tools, creating onboarding tutorials and best practices for rapid team adoption.",
@@ -638,7 +634,7 @@ export const PROFILE = {
   secondaryEmail: "srijansingh2006@gmail.com",
   phone: "+91 9838027276",
   rawPhone: "9838027276",
-  location: "Bangalore / Chennai, India",
+  location: "Chennai, India",
   bio: "Engineering undergraduate specializing in creative design and AI driven workflow optimization. I identify friction points across creative teams and build simple, frictionless scripts, internal utilities, and web applications in Python and JavaScript to accelerate execution from concept to final product.",
   github: "https://github.com/SrijanSingh2006",
   linkedin: "https://www.linkedin.com/in/srijan-singh-999a552a9",

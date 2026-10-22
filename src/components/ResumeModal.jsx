@@ -195,11 +195,8 @@ export default function ResumeModal({ isOpen, onClose }) {
                       </div>
                       <span className="text-xs font-mono text-textSubtle">{exp.period}</span>
                     </div>
-                    {exp.overview && (
-                      <p className="text-xs text-[#a5b4fc] font-medium leading-relaxed mb-2.5">{exp.overview}</p>
-                    )}
                     {exp.highlights && (
-                      <div className="space-y-1.5 border-t border-white/5 pt-2.5">
+                      <div className="space-y-1.5 pt-1">
                         {exp.highlights.map((h, hIdx) => (
                           <div key={hIdx} className="flex items-start gap-2 text-xs text-textMuted leading-relaxed">
                             <span className="text-[#818cf8] mt-0.5">▹</span>

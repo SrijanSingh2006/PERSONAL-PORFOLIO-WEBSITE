@@ -52,7 +52,7 @@ export default function FigmaAboutSection() {
             <div className="flex flex-wrap gap-4 mb-10">
               {[
                 { emoji: "🎓", label: "B.Tech CSE", sub: "9.14 CGPA • SRMIST" },
-                { emoji: "📍", label: "Bangalore / Chennai", sub: "India" },
+                { emoji: "📍", label: "Chennai", sub: "India" },
                 { emoji: "💼", label: "3 Remote Internships", sub: "AI & Workflows" },
                 { emoji: "📜", label: "7 Certifications", sub: "SAP, McKinsey, IIT" },
               ].map((fact, i) => (

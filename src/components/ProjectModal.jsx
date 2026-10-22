@@ -113,7 +113,7 @@ export default function ProjectModal({ project, onClose }) {
             <div>
               <h3 className="section-label mb-2">Overview & Implementation</h3>
               <p className="text-sm sm:text-base text-textMuted leading-relaxed">
-                {project.description || project.shortDescription}
+                {project.shortDescription || project.description}
               </p>
             </div>
 
