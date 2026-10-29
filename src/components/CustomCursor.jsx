@@ -60,7 +60,7 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-br from-[#22d3ee] to-[#6366f1] rounded-full pointer-events-none z-[9999] shadow-[0_0_10px_rgba(34,211,238,0.8)] mix-blend-screen"
+        className="fixed top-0 left-0 w-3 h-3 bg-gradient-to-br from-[#4f46e5] to-[#7c3aed] rounded-full pointer-events-none z-[9999] shadow-[0_2px_8px_rgba(79,70,229,0.4)]"
         animate={{
           x: mousePosition.x - 6,
           y: mousePosition.y - 6,
@@ -70,13 +70,13 @@ export default function CustomCursor() {
         transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-[rgba(139,92,246,0.6)] rounded-full pointer-events-none z-[9998] shadow-[0_0_15px_rgba(99,102,241,0.3)]"
+        className="fixed top-0 left-0 w-8 h-8 border border-[#4f46e5]/30 rounded-full pointer-events-none z-[9998] shadow-[0_2px_12px_rgba(79,70,229,0.1)]"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(139,92,246,0.1)" : "rgba(139,92,246,0)",
-          borderColor: isHovering ? "rgba(139,92,246,0.2)" : "rgba(139,92,246,0.6)",
+          backgroundColor: isHovering ? "rgba(79,70,229,0.08)" : "rgba(79,70,229,0)",
+          borderColor: isHovering ? "rgba(79,70,229,0.5)" : "rgba(79,70,229,0.25)",
         }}
         transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.5 }}
       />

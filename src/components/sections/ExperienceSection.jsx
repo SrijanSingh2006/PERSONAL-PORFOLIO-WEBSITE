@@ -1,169 +1,43 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, Calendar, Award, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Award, BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
 import { EXPERIENCE, CERTIFICATIONS } from "../../data/portfolioData";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="w-full py-28 bg-background relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full bg-[#6366f1]/5 blur-[100px] pointer-events-none" />
+    <section id="experience" className="experience-editorial">
+      <div className="section-shell">
+        <div className="experience-heading">
+          <div><p className="eyebrow"><span>03</span> EXPERIENCE & LEARNING</p><h2>Learning by <span>shipping.</span></h2></div>
+          <p>Internships and team work that taught me to build for real workflows, with the people who use them.</p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="section-label">Practical Experience</div>
-          <h2 className="font-display text-4xl md:text-5xl font-black mt-2">
-            Internship <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="text-textMuted max-w-2xl mt-3 text-sm sm:text-base">
-            Hands-on remote software, AI tool exploration, and workflow optimization internships focused on scalable scripting, internal utilities, and production web engineering.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Internships Column */}
-          <div className="lg:col-span-2">
-            <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
-              <Briefcase size={16} className="text-[#6366f1]" />
-              Internship History & Roles
-            </h3>
-            <div className="relative">
-              <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-transparent" />
-              <div className="flex flex-col gap-6">
-                {EXPERIENCE.map((exp, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-30px" }}
-                    transition={{ delay: i * 0.1, type: "spring", stiffness: 80, damping: 18 }}
-                    className="pl-14 relative"
-                  >
-                    <div className="absolute left-3 top-5 w-5 h-5 rounded-full bg-[#050816] border-2 border-[#6366f1] flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-[#6366f1]" />
-                    </div>
-
-                    <motion.div
-                      whileHover={{ x: 4 }}
-                      className="glass-card p-6 border border-[rgba(99,102,241,0.2)]"
-                    >
-                      <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                        <div>
-                          <h4 className="font-display font-bold text-base text-textMain">{exp.role}</h4>
-                          <p className="text-[#818cf8] font-semibold text-sm">{exp.company}</p>
-                        </div>
-                        <div className="flex flex-col items-end gap-1">
-                          {exp.certificateUrl ? (
-                            <a
-                              href={exp.certificateUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="tech-tag hover:border-[#818cf8] hover:text-[#818cf8] transition-colors flex items-center gap-1"
-                              title="View Verified Certificate"
-                            >
-                              <span>{exp.type}</span>
-                              <span className="text-[10px]">↗</span>
-                            </a>
-                          ) : (
-                            <span className="tech-tag">{exp.type}</span>
-                          )}
-                          <span className="flex items-center gap-1 text-xs text-textSubtle">
-                            <Calendar size={10} />
-                            {exp.date}
-                          </span>
-                          <span className="flex items-center gap-1 text-xs text-textSubtle">
-                            <MapPin size={10} />
-                            {exp.location}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Verified Resume Highlights as clean bullet points */}
-                      {exp.highlights && exp.highlights.length > 0 && (
-                        <div className="space-y-2.5 pt-2">
-                          {exp.highlights.map((h, hIdx) => (
-                            <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-textMuted leading-relaxed">
-                              <span className="text-[#818cf8] font-bold mt-0.5">▹</span>
-                              <span>{h}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Technology Chips */}
-                      {exp.technologies && exp.technologies.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/5">
-                          {exp.technologies.map((t) => (
-                            <span key={t} className="tech-tag text-[10px] !py-0.5 !px-2">
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
-                  </motion.div>
-                ))}
+        <div className="experience-list">
+          {EXPERIENCE.map((exp, index) => (
+            <motion.article key={`${exp.company}-${exp.role}`} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-25px" }} transition={{ duration: .4, delay: index * .06 }} className="experience-row">
+              <div className="experience-date"><span>0{index + 1}</span><p>{exp.date}</p></div>
+              <div className="experience-main">
+                <div className="experience-meta"><span>{exp.company}</span><span><MapPin size={12} /> {exp.location}</span></div>
+                <h3>{exp.role}</h3>
+                <ul>{exp.highlights?.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
+                <div className="experience-tools">{exp.technologies?.slice(0, 5).map((technology) => <span key={technology}>{technology}</span>)}</div>
               </div>
-            </div>
-          </div>
+              <div className="experience-link">
+                {exp.certificateUrl ? <a href={exp.certificateUrl} target="_blank" rel="noreferrer" aria-label={`${exp.company} certificate`}><ArrowUpRight size={17} /></a> : <BriefcaseBusiness size={17} />}
+              </div>
+            </motion.article>
+          ))}
+        </div>
 
-          {/* Certifications Column */}
-          <div>
-            <h3 className="font-display font-bold text-lg text-textMuted uppercase tracking-widest mb-6 flex items-center gap-2">
-              📜 Verified Credentials
-            </h3>
-            <div className="flex flex-col gap-4">
-              {CERTIFICATIONS.map((cert, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="glass-card p-5"
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <span
-                      className="text-xs font-bold px-2.5 py-1 rounded-full"
-                      style={{
-                        background: "rgba(99,102,241,0.12)",
-                        border: "1px solid rgba(99,102,241,0.3)",
-                        color: "#818cf8",
-                      }}
-                    >
-                      {cert.issuer}
-                    </span>
-                    <span className="text-xs text-textSubtle font-mono">{cert.date}</span>
-                  </div>
-                  <h4 className="font-display font-bold text-sm text-textMain mt-2 mb-1.5 leading-tight">
-                    {cert.title}
-                  </h4>
-                  {cert.focusDomain && (
-                    <p className="text-[11px] font-mono text-[#818cf8] mb-1.5 leading-snug">
-                      {cert.focusDomain}
-                    </p>
-                  )}
-                  <p className="text-xs text-textMuted line-clamp-2 leading-relaxed mb-2.5">
-                    {cert.description}
-                  </p>
-                  {cert.certificateUrl && (
-                    <a
-                      href={cert.certificateUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#818cf8] hover:text-[#22d3ee] transition-colors"
-                    >
-                      <span>Verify Certificate</span>
-                      <span className="text-[10px]">↗</span>
-                    </a>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+        <div className="credentials-block">
+          <div className="credentials-heading"><div><Award size={17} /><h3>Courses & credentials</h3></div><span>7 COMPLETED</span></div>
+          <div className="credentials-grid">
+            {CERTIFICATIONS.map((cert, index) => (
+              <a key={cert.id || cert.title} href={cert.certificateUrl || undefined} target={cert.certificateUrl ? "_blank" : undefined} rel={cert.certificateUrl ? "noreferrer" : undefined} className="credential-item">
+                <span className="credential-count">{String(index + 1).padStart(2, "0")}</span>
+                <span className="credential-name">{cert.title}<small>{cert.issuer} · {cert.date}</small></span>
+                {cert.certificateUrl && <ArrowUpRight size={14} className="credential-arrow" />}
+              </a>
+            ))}
           </div>
         </div>
       </div>

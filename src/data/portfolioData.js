@@ -2,24 +2,24 @@ export const PROJECTS = [
   {
     id: "tripmacha",
     title: "TRIPMACHA",
-    badge: "AI Powered Ideation & Workflows",
-    subtitle: "AI Powered Ideation, Prompt Workflow & Prototype Platform",
+    badge: "Agentic AI Workflows",
+    subtitle: "Multi-Step Agentic Workflow, Tool Calling & QC Pipeline",
     date: "Jun 2026",
     githubLink: "https://github.com/SrijanSingh2006/tripmacha-ai-travel",
     github: "https://github.com/SrijanSingh2006/tripmacha-ai-travel",
     liveDemo: "#",
     technologies: ["Python", "JavaScript", "React.js", "FastAPI", "Google GenAI SDK", "Playwright", "Docker", "PostgreSQL"],
-    domain: "AI Tool Integration | Frictionless Workflows | Prototype Deployment | Automated Ideation",
-    shortDescription: "An accessible web application and prompt orchestration platform that turns early concepts and user prompts into structured, interactive itineraries.",
-    description: "Designed and deployed an accessible web application using React.js, FastAPI, and Google GenAI SDK to turn early concepts and user inputs into structured visual itineraries with automated Playwright data pipelines and Docker deployment.",
+    domain: "Governed AI Workflows | Prompt & Context Engineering | Tool Calling | Automated Evals",
+    shortDescription: "A multi-step agentic workflow with tool calling, structured outputs, and automated quality checks before results reach users.",
+    description: "Engineered a governed AI workflow with Python, FastAPI, and Google GenAI SDK, enforcing phase sequencing and structured JSON outputs. Added Playwright-driven test sets to check accuracy, completeness, and schema compliance before rendering.",
     bullets: [
-      "Designed and deployed an accessible web application using React.js, FastAPI, and Google GenAI SDK to turn early concepts and user inputs into structured visual itineraries.",
-      "Built streamlined prompt workflows and Python automation scripts with Playwright to eliminate repetitive research tasks and accelerate concept to execution speed.",
-      "Containerized and deployed the application with Docker so internal teams and end users could access the tool seamlessly without setup friction."
+      "Engineered a multi-step agentic workflow using Python, FastAPI, and Google GenAI SDK with strict phase sequencing, tool calling, and structured JSON output enforcement.",
+      "Built automated quality control and evaluation with Playwright and Python test sets to verify accuracy, completeness, and schema compliance before rendering.",
+      "Versioned prompt templates, context files, and JSON schemas in GitHub while standardizing interactive React card layouts and UI components."
     ],
-    resultsHighlight: "Eliminated repetitive research overhead and accelerated concept to execution speed",
-    problem: "Designers and users spend hours manually searching and synthesizing fragmented data across disparate platforms, causing information overload and friction in creative planning.",
-    solution: "Engineered an automated crawler with Playwright combined with Google GenAI SDK to synthesize unstructured data into structured, personalized interactive plans asynchronously.",
+    resultsHighlight: "Phase-gated generation with schema validation and pre-render quality checks",
+    problem: "Multi-step AI generation can produce incomplete or malformed results when prompts, context, and output requirements are not managed consistently.",
+    solution: "Built a phase-sequenced agent workflow with tool calling, constrained JSON output, versioned prompt assets, and automated quality checks.",
     architectureDiagram: "User Concept Prompt -> React Frontend -> FastAPI Gateway -> Playwright Scraper + Google GenAI SDK -> PostgreSQL DB -> Interactive Itinerary UI",
     pipelineSteps: [
       "Multi-source information scraping and normalization using headless Playwright",
@@ -46,22 +46,22 @@ export const PROJECTS = [
   {
     id: "agricomply",
     title: "AGRICOMPLY",
-    badge: "Visual Processing & Generative AI",
-    subtitle: "Visual Processing, Generative AI & Workflow Utility Platform",
+    badge: "RAG & AI Quality Control",
+    subtitle: "RAG, Vector Database & AI-Led Quality Verification System",
     date: "Jan 2026",
     githubLink: "https://github.com/SrijanSingh2006/AgriComply-AI",
     github: "https://github.com/SrijanSingh2006/AgriComply-AI",
     liveDemo: "#",
     technologies: ["Python", "JavaScript", "React.js", "Flask", "OpenCV", "AWS S3", "RAG", "Vector Database"],
-    domain: "Visual & Image Pipelines | AI Powered Utilities | Workflow Integration | Cloud Deployment",
-    shortDescription: "A full stack workflow utility combining OpenCV visual document enhancement, OCR extraction, and RAG based AI assistants into a unified interface.",
-    description: "Built and deployed a full stack web application using Python, Flask, and React.js that integrates OpenCV visual processing and RAG based AI assistants into a unified interface, replacing manual verification with automated cloud deployed scripts.",
+    domain: "RAG & Vector Databases | AI-Led QC | Human Review Gates | Context Engineering",
+    shortDescription: "A RAG and vector search system that grounds AI responses in verified documents, with human review gates and feedback loops.",
+    description: "Architected a Retrieval-Augmented Generation pipeline with vector search to ground LLM responses in verified domain documents. Added human review gates for completeness and factual accuracy, then fed corrections back into context and prompt assets.",
     bullets: [
-      "Built and deployed a full stack web application using Python, Flask, and React.js that integrates OpenCV visual processing and RAG based AI assistants into a unified interface.",
-      "Replaced repetitive manual inspection and lookup tasks with automated image enhancement scripts and natural language query workflows.",
-      "Authored clear usage documentation and deployed the utility on AWS S3 and cloud infrastructure for frictionless access by non technical users."
+      "Architected a Retrieval-Augmented Generation and vector database pipeline in Python and React that grounds LLM responses against verified domain documents.",
+      "Enforced phase sequencing and human review gates to validate document completeness, rubric criteria, and factual accuracy before final approval.",
+      "Logged review corrections and edge-case failures back into context files and prompt templates to continuously improve retrieval precision."
     ],
-    resultsHighlight: "Replaced repetitive manual verification with automated OpenCV scripts and sub-2s RAG queries",
+    resultsHighlight: "Grounded responses in verified sources with review gates and correction feedback",
     problem: "Manual verification of identity documents and complex policy guidelines creates immense friction, delays, and human error in approval workflows.",
     solution: "Engineered an intelligent pipeline combining OpenCV pre-processing, OCR extraction, vector retrieval (RAG), and Gemini LLM reasoning for instant document validation.",
     architectureDiagram: "Document Upload -> OpenCV Image Enhancement -> Tesseract OCR -> Vector DB Semantic Search -> Google Gemini RAG -> Verification Report",
@@ -90,22 +90,22 @@ export const PROJECTS = [
   {
     id: "reachinbox",
     title: "ReachInbox",
-    badge: "Task Automation & Queue Engine",
-    subtitle: "Automated Task Execution & Workflow Bottleneck Eliminator",
+    badge: "Governed Workflow Orchestration",
+    subtitle: "Phase-Sequenced Execution & Feedback Loop Engine",
     date: "Oct 2026",
     githubLink: "https://github.com/SrijanSingh2006/ReachInboxAI",
     github: "https://github.com/SrijanSingh2006/ReachInboxAI",
     liveDemo: "#",
     technologies: ["JavaScript", "TypeScript", "Next.js", "Node.js", "Express.js", "BullMQ", "Redis", "PostgreSQL"],
-    domain: "Repetitive Task Automation | Internal Web Utilities | Process Optimization | Scalable Scripting",
-    shortDescription: "A high performance web utility and queue engine built with BullMQ and Redis to eliminate high friction, repetitive task bottlenecks automatically.",
-    description: "Identified high friction, repetitive scheduling bottlenecks and engineered an automated web utility using JavaScript, TypeScript, Next.js, BullMQ, and Redis to execute batch background operations with visual progress monitoring.",
+    domain: "Phase Sequencing Gates | Internal Full-Stack Tooling | Schema Validation | GitHub Workflows",
+    shortDescription: "A governed execution and feedback engine with phase gates, review states, and versioned workflow data.",
+    description: "Developed a TypeScript workflow orchestration engine using Next.js, Node.js, BullMQ, and Redis to enforce step-by-step execution and review gates. Designed PostgreSQL and JSON schemas for workflow states, reversible changes, and automated checks.",
     bullets: [
-      "Identified high friction, repetitive scheduling bottlenecks and engineered a simple, automated web utility using JavaScript, TypeScript, Next.js, and Node.js.",
-      "Built background scripting pipelines with BullMQ and Redis to handle batch execution automatically while keeping the user interface clean and intuitive.",
-      "Designed visual progress dashboards to collect operational data and present workflow efficiency gains to stakeholders."
+      "Developed a governed workflow orchestration engine in TypeScript, Node.js, and Next.js with BullMQ and Redis to enforce sequential execution and review gates.",
+      "Designed PostgreSQL and JSON schemas to track workflow transitions, reversible changes, and automated quality checks.",
+      "Built a standardized dashboard for internal users to inspect outputs, resolve flagged errors, and feed corrections back into source templates."
     ],
-    resultsHighlight: "Zero task loss under heavy concurrent loads with automated batch scripting",
+    resultsHighlight: "Traceable workflow state, review gates, and automated quality checks",
     problem: "High-volume asynchronous operations and recurring job batches often suffer from execution collisions, unbounded memory leaks, and job loss during server restarts.",
     solution: "Architected a multi-worker distributed queuing system backed by Redis and BullMQ with exponential backoff retries, persistent job checkpointing in PostgreSQL, and rate-limiting safeguards.",
     architectureDiagram: "Trigger -> Express/Next.js API -> BullMQ Priority Queue -> Redis In-Memory Broker -> Distributed Worker Pool -> PostgreSQL State Audit",
@@ -129,24 +129,24 @@ export const PROJECTS = [
   {
     id: "datalens",
     title: "DataLens",
-    badge: "Interactive Visualization & UI/UX",
-    subtitle: "Interactive Data Visualization & Workflow Insights Platform",
+    badge: "Schema Validation & Assessment",
+    subtitle: "Platform-Ready Schema Validator, Assessment & Rubric Engine",
     date: "Mar 2025",
     githubLink: "https://github.com/SrijanSingh2006/Excel-analytical-platform-main",
     github: "https://github.com/SrijanSingh2006/Excel-analytical-platform-main",
     liveDemo: "#",
     technologies: ["JavaScript", "TypeScript", "React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Chart.js"],
-    domain: "Data Driven Insights | Interactive Visualization | UI/UX Prototyping | Web App Deployment",
-    shortDescription: "A designer friendly web utility that parses spreadsheet files in browser and generates interactive visual dashboards in seconds with zero configuration.",
-    description: "Developed and deployed a frictionless web utility using React.js, Tailwind CSS, and Chart.js that transforms raw spreadsheet files into interactive visual dashboards in seconds, assisting teams in collecting operational data and uncovering workflow bottlenecks.",
+    domain: "JSON Schemas & Validation | Multi-Format Uploads | Standardized UI | Automated Checks",
+    shortDescription: "A full-stack validation tool for multi-file submissions, JSON creation specs, rubrics, and content quality checks.",
+    description: "Built a TypeScript, React, and Node.js validation tool to ingest multi-file uploads and verify them against JSON creation specs and rubric templates. Standardized the interface and visual diagnostics so authors can spot schema and formatting errors before publishing.",
     bullets: [
-      "Developed and deployed a frictionless web utility using React.js, Tailwind CSS, and Chart.js that transforms raw spreadsheet files into interactive visual dashboards in seconds.",
-      "Assisted teams in collecting and analyzing operational data to uncover workflow bottlenecks and inform which process problems to solve next.",
-      "Designed an intuitive, designer friendly UI/UX with zero configuration overhead, enabling non technical stakeholders to generate presentation ready visuals."
+      "Built a full-stack validation tool in TypeScript, React, and Node.js to parse and verify multi-file uploads against JSON creation specs and rubric templates.",
+      "Automated quality checks for data completeness, schema validity, and formatting consistency before publishing to the platform database.",
+      "Standardized UI colors, interactive cards, and visual diagnostics so authors and reviewers can spot and fix content errors quickly."
     ],
-    resultsHighlight: "Parsed 100,000+ cells in under 200ms with zero configuration and instant presentation ready visuals",
-    problem: "Non-technical users and designers struggle to extract instant visual patterns and trends from complex, multi-tab tabular spreadsheet datasets.",
-    solution: "Built a web-based data visualization platform that parses spreadsheet files in-browser, calculates statistics instantly, and renders interactive 2D and 3D charts.",
+    resultsHighlight: "Automated completeness, schema, and formatting checks before publishing",
+    problem: "Content authors need consistent ways to check submissions against detailed creation specifications and rubrics before they reach a platform.",
+    solution: "Created multi-format ingestion and automated validation against JSON specs, completeness rules, and rubric criteria, with diagnostics that make fixes clear.",
     architectureDiagram: "Spreadsheet Upload -> SheetJS Parser -> Statistical Engine -> Chart.js / Three.js Renderer -> Express API -> Visual Dashboard",
     pipelineSteps: [
       "Client-side spreadsheet extraction and type inference with SheetJS",
@@ -168,22 +168,22 @@ export const PROJECTS = [
   {
     id: "emotionai",
     title: "EmotionAI",
-    badge: "Creative Sentiment & Feedback AI",
-    subtitle: "AI Powered Creative Sentiment & User Feedback Analyzer",
+    badge: "Automated Evals & Test Sets",
+    subtitle: "LLM/NLP Output Evaluation & Test-Set Benchmarking Suite",
     date: "Jun 2026",
     githubLink: "https://github.com/SrijanSingh2006/Emotion_Predictor",
     github: "https://github.com/SrijanSingh2006/Emotion_Predictor",
     liveDemo: "#",
     technologies: ["Python", "TensorFlow", "Keras", "NLP", "RNN", "LSTM", "BiGRU", "Custom Scripting"],
-    domain: "AI Exploration & Testing | User Experience Insights | Python Scripting | Model Evaluation",
-    shortDescription: "A deep learning NLP system and Python scripting pipeline benchmarking neural architectures to classify qualitative user feedback with 92.1% accuracy.",
-    description: "Explored and tested multiple deep learning architectures in Python to classify user sentiment and qualitative feedback with 92.1% accuracy, creating lightweight scripts to automate text preprocessing and document best practices for product teams.",
+    domain: "LLM & NLP Output Evals | Test Case Verification | Automated QC | Benchmark Datasets",
+    shortDescription: "An NLP benchmarking suite with curated test sets, deterministic checks, and CI validation for model iterations.",
+    description: "Engineered a Python evaluation pipeline to benchmark NLP sequence models against curated gold-standard test sets, achieving 92.1% verified accuracy. Added deterministic PyTest checks and GitHub Actions runs so model and prompt updates are validated before merging.",
     bullets: [
-      "Explored and rigorously tested multiple deep learning architectures in Python to classify user sentiment and qualitative feedback with 92.1% accuracy.",
-      "Built lightweight Python scripts to automate text preprocessing and summarize user reactions into clear, actionable insights for product and design teams.",
-      "Documented model capabilities, limitations, and best practices to help stakeholders integrate sentiment insights into their ideation process."
+      "Engineered an automated Python evaluation and benchmarking pipeline for NLP sequence models against curated gold-standard test sets, achieving 92.1% verified accuracy.",
+      "Wrote deterministic PyTest cases and quality checks for answer coverage, edge-case handling, and output consistency across model iterations.",
+      "Integrated automated test execution into GitHub Actions so every prompt or model update was validated before merging."
     ],
-    resultsHighlight: "92.1% test accuracy achieved through Bidirectional GRU experimentation and lightweight Python scripting",
+    resultsHighlight: "92.1% verified accuracy with automated tests and CI checks",
     problem: "Understanding nuanced human feedback, sentiment, and emotional tone across user inputs is difficult with traditional rule-based classifiers.",
     solution: "Built a comparative sequence modeling pipeline benchmarking recurrent neural architectures to accurately classify fine-grained emotional patterns.",
     architectureDiagram: "Raw Feedback -> Tokenization & Padding -> Embedding Layer -> Bidirectional GRU -> Dense Softmax -> Actionable Insights",
@@ -212,24 +212,24 @@ export const PROJECTS = [
   {
     id: "mentalytics",
     title: "Mentalytics",
-    badge: "Behavioral Analytics & Fast API",
-    subtitle: "Behavioral Data Insights & FastAPI Prototype Tool",
+    badge: "Structured Outputs & Validation",
+    subtitle: "Structured Schema API & Automated Validation Pipeline",
     date: "Feb 2026",
     githubLink: "https://github.com/SrijanSingh2006/Mansick_StithiMentalytics",
     github: "https://github.com/SrijanSingh2006/Mansick_StithiMentalytics",
     liveDemo: "#",
     technologies: ["Python", "FastAPI", "Pandas", "NumPy", "Scikit-learn", "REST APIs"],
-    domain: "Data Driven Problem Identification | FastAPI Deployment | Python Utilities | Workflow Analytics",
-    shortDescription: "A data analytics pipeline and lightweight FastAPI web service trained on 5,000+ multivariate records to uncover user behavioral patterns and pain points.",
-    description: "Collected and analyzed multivariate behavioral datasets using Python, Pandas, and Scikit-learn to uncover underlying patterns, wrapping models into a lightweight FastAPI web service with clear API documentation.",
+    domain: "Structured Outputs | API & Schema Design | Code Correctness | Documentation",
+    shortDescription: "A schema-first FastAPI service with Pydantic validation, deterministic outputs, and unit-tested edge cases.",
+    description: "Built a Python and FastAPI service enforcing Pydantic JSON schemas, input validation, and structured outputs. Added unit tests for algorithmic correctness, boundary conditions, and consistent response formatting, with clear schema documentation for consumers.",
     bullets: [
-      "Collected and analyzed multivariate behavioral datasets using Python, Pandas, and Scikit-learn to uncover underlying patterns and user pain points.",
-      "Wrapped predictive models into a lightweight FastAPI web service so insights could be queried effortlessly via simple web interfaces.",
-      "Created clear API documentation and visual summaries to present analytical findings and recommendations to non technical audiences."
+      "Built a Python and FastAPI service enforcing strict Pydantic JSON schemas, input validation, and structured outputs for downstream platform use.",
+      "Wrote unit tests for algorithmic correctness, boundary conditions, and deterministic response formatting.",
+      "Authored technical documentation and schema specifications for engineering and design teams."
     ],
     resultsHighlight: "0.878 R² and 0.347 MAE with lightweight FastAPI query interface",
-    problem: "Behavioral health assessments often rely on subjective impressions without quantified predictive modeling over multivariate lifestyle patterns.",
-    solution: "Developed an automated regression pipeline using Scikit-learn Pipelines, ColumnTransformer, and RandomizedSearchCV deployed as a FastAPI web service.",
+    problem: "Downstream tools need predictable API responses, while loosely validated inputs and inconsistent output formats make integrations fragile.",
+    solution: "Designed a schema-first API with Pydantic validation, test coverage for boundary conditions, and documentation that makes data contracts explicit.",
     architectureDiagram: "5,000+ Multi-Feature Records -> EDA & Cleaning -> ColumnTransformer -> Random Forest Regressor -> FastAPI Query Service",
     pipelineSteps: [
       "Comprehensive Exploratory Data Analysis (EDA) and outlier detection with Pandas",
@@ -256,8 +256,8 @@ export const PROJECTS = [
   {
     id: "ecoshield",
     title: "ECOSHIELD",
-    badge: "Spatial Visualization & Prototyping",
-    subtitle: "Interactive Spatial Visualization & Concept Prototyping App",
+    badge: "Interactive Learning Platform",
+    subtitle: "Interactive Learning & Visual Simulation Platform",
     date: "Aug 2024",
     githubLink: "https://github.com/SrijanSingh2006/ECOSHIELD-Bio-Pellet",
     github: "https://github.com/SrijanSingh2006/ECOSHIELD-Bio-Pellet",
@@ -398,71 +398,50 @@ export const SKILLS = {
 export const SKILL_CATEGORIES = [
   {
     id: "tool-scripting",
-    title: "Programming & Tool Scripting",
-    name: "Programming & Tool Scripting",
-    icon: "💻",
-    color: "#6366f1",
+    title: "AI workflows & evaluation",
+    name: "AI workflows & evaluation",
+    icon: "✳",
+    color: "#7956d8",
     skills: [
-      "Python",
-      "JavaScript",
-      "TypeScript",
-      "Bash Scripting",
-      "SQL",
-      "HTML5 / Tailwind CSS",
-      "Repetitive Task Automation"
+      "LLMs & Generative AI", "Prompt & Context Engineering", "Agentic Workflows", "Tool Calling",
+      "Structured Outputs", "RAG & Vector Databases", "Evals & Test Sets", "AI-led Quality Control"
     ]
   },
   {
     id: "ai-genai",
-    title: "AI Exploration & Visualization",
-    name: "AI Exploration & Visualization",
-    icon: "🧠",
-    color: "#8b5cf6",
+    title: "Engineering & full stack",
+    name: "Engineering & full stack",
+    icon: "⌘",
+    color: "#a16ee8",
     skills: [
-      "Generative AI Platforms",
-      "Google GenAI SDK",
-      "Prompt Engineering",
-      "OpenCV Image Processing",
-      "RAG & Vector Databases",
-      "AI Powered Ideation"
+      "Python", "JavaScript", "TypeScript", "React", "Next.js", "FastAPI", "Flask", "Node.js", "REST APIs"
     ]
   },
   {
     id: "prototyping-deploy",
-    title: "Deployment & Internal Utilities",
-    name: "Deployment & Internal Utilities",
-    icon: "🚀",
-    color: "#22d3ee",
+    title: "Data, schemas & automation",
+    name: "Data, schemas & automation",
+    icon: "↗",
+    color: "#6f87e8",
     skills: [
-      "React.js & Next.js",
-      "FastAPI & Flask",
-      "Node.js & Express.js",
-      "Web App & Prototype Deployment",
-      "Docker Containers",
-      "AWS S3 & Cloud Storage",
-      "Playwright Automation"
+      "JSON Schema & Pydantic", "PostgreSQL", "MySQL", "MongoDB", "Redis", "PyTest", "Playwright", "GitHub Actions", "Git"
     ]
   },
   {
     id: "design-thinking",
-    title: "Design Workflows & Insights",
-    name: "Design Workflows & Insights",
-    icon: "🎨",
-    color: "#10b981",
+    title: "Product craft & collaboration",
+    name: "Product craft & collaboration",
+    icon: "◌",
+    color: "#c07bdc",
     skills: [
-      "Problem & Bottleneck Identification",
-      "Concept to Execution Workflows",
-      "UI/UX & Creative Tooling Support",
-      "Process Documentation & Tutorials",
-      "Data Driven Workflow Analysis",
-      "Cross Functional Collaboration"
+      "Internal tools", "Assessment pipelines", "Human review gates", "Technical documentation", "Feedback loops", "Cross-functional delivery"
     ]
   }
 ];
 
 export const EXPERIENCE = [
   {
-    role: "AI Tool Exploration & Scripting Intern",
+    role: "AI Research & Workflow Engineering Intern",
     company: "CodeAlpha",
     date: "Jul 2026 - Aug 2026",
     period: "Jul 2026 - Aug 2026",
@@ -470,14 +449,14 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1I_2B9hjd6XQcvydrspvsg5dUjjd2550C/view?usp=sharing",
     highlights: [
-      "Researched, evaluated, and rigorously tested emerging AI models, generative platforms, and automated ideation tools to solve workflow bottlenecks and accelerate concept to execution cycles.",
-      "Designed and built simple, frictionless Python scripts and AI powered automation utilities that eliminated repetitive manual tasks across creative and data processing pipelines.",
-      "Collected and analyzed workflow performance data using Python and Pandas to uncover data driven insights and inform which process bottlenecks to solve next."
+      "Built governed, multi-step AI workflows in Python using prompt and context engineering, tool calling, and structured JSON outputs, with phase sequencing and human review gates.",
+      "Implemented RAG and vector database pipelines with an AI-led quality-control layer for accuracy, completeness, and schema alignment.",
+      "Created automated evaluation suites, benchmark test sets, and validation scripts to catch hallucinations and formatting errors early."
     ],
-    technologies: ["Python", "Pandas", "AI Models", "Automation Scripts", "Workflow Analysis"]
+    technologies: ["Python", "LLMs", "RAG", "Vector databases", "Evaluation", "JSON Schema"]
   },
   {
-    role: "Application Deployment & Workflow Integration Intern",
+    role: "Full-Stack AI Tooling & Schema Engineering Intern",
     company: "Prodigy Infotech",
     date: "Feb 2025 - Mar 2025",
     period: "Feb 2025 - Mar 2025",
@@ -485,14 +464,14 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1mXx4R0Mr8xgY0qGclvHf_kTqi9cvtATP/view",
     highlights: [
-      "Built, customized, and deployed accessible internal web applications, interactive prototypes, and lightweight utilities using JavaScript and React.js so tools were immediately usable by UI/UX designers.",
-      "Developed and proposed streamlined workflows for integrating AI APIs and visualization components into existing design processes, from early ideation to final execution.",
-      "Collaborated closely with UI/UX designers, engineers, and IT teams to understand their day to day technical challenges and ensure deployed tools were practical and genuinely adopted."
+      "Developed internal full-stack tools, REST APIs, and authoring interfaces with Python, JavaScript, TypeScript, React, HTML, and CSS.",
+      "Designed JSON schemas and relational structures to validate and store structured content from the start.",
+      "Moved prompts, context, schemas, and templates into versioned GitHub repositories with branching, pull requests, and GitHub Actions validation."
     ],
-    technologies: ["JavaScript", "React.js", "AI APIs", "Internal Utilities", "Cross Functional Collaboration"]
+    technologies: ["TypeScript", "React", "Python", "REST APIs", "JSON Schema", "GitHub Actions"]
   },
   {
-    role: "Workflow Optimization & Process Documentation Intern",
+    role: "Quality Control & Assessment Pipeline Intern",
     company: "Sukh Sagar Industries",
     date: "Mar 2025 - Apr 2025",
     period: "Mar 2025 - Apr 2025",
@@ -500,14 +479,14 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1S8na70Nu8c5CB89282aVpVc7tT7tZIOA/view?usp=sharing",
     highlights: [
-      "Observed and interviewed team members across UI/UX, visual content, and operations to uncover day to day friction points, bottlenecks, and repetitive manual tasks.",
-      "Created clear, comprehensive process documentation, step by step tutorials, and best-practice guides so non technical and creative teams could adopt new tools effortlessly.",
-      "Regularly presented workflow findings, progress updates, and tool recommendations to stakeholders, articulating design thinking and technical concepts to non technical audiences."
+      "Extended automated validation for structured assessments, including MCQs, single- and multi-file code submissions, file uploads, and rubric templates.",
+      "Wrote and verified test cases for code correctness, answer coverage, rubric validity, and specification alignment before deployment.",
+      "Worked with content authors to turn workflow pain points and review corrections into better source templates."
     ],
-    technologies: ["Process Documentation", "Friction Mapping", "Step by Step Tutorials", "Stakeholder Presentations", "Design Thinking"]
+    technologies: ["Python", "Test cases", "Assessment pipelines", "Rubrics", "Quality control"]
   },
   {
-    role: "Technical & Design Workflow Member",
+    role: "AI Workflow & Technical Lead",
     company: "IEEE SSIT, SRMIST",
     date: "2023 - Present",
     period: "2023 - Present",
@@ -515,11 +494,11 @@ export const EXPERIENCE = [
     location: "Chennai, India",
     certificateUrl: null,
     highlights: [
-      "Partnered with student designers, UI/UX teams, and developers to identify bottlenecks in creative event workflows and deploy simple web utilities using JavaScript and Python.",
-      "Explored and tested new generative AI and visualization tools, creating onboarding tutorials and best practices for rapid team adoption.",
-      "Bridged communication between technical engineering teams and creative design members during collaborative workshops and product showcases."
+      "Built internal web utilities and assessment-checking scripts with Python, TypeScript, React, and GitHub Actions for campus coding and AI workshops.",
+      "Standardized JSON templates, problem specs, and test verification pipelines for programming challenges used by hundreds of students.",
+      "Gathered feedback from content creators and mentors, documented workflows, and shipped iterative platform improvements."
     ],
-    technologies: ["JavaScript", "Python", "Generative AI", "Tutorials", "Cross Team Communication"]
+    technologies: ["Python", "TypeScript", "React", "GitHub Actions", "Assessment QC"]
   }
 ];
 
@@ -622,12 +601,12 @@ export const CERTIFICATIONS = [
   }
 ];
 
-export const SUMMARY = "Engineering undergraduate at SRMIST with a strong software development focus and an acute interest in creative design and AI driven workflow optimization. Experienced in identifying workflow friction points, bottlenecks, and repetitive tasks across creative and technical teams, rigorously testing emerging AI platforms, and building simple, frictionless scripts and internal web applications using Python and JavaScript. Adept at integrating generative AI and visualization tools from initial ideation to final execution, authoring clear process documentation and tutorials, and explaining technical concepts to non technical stakeholders.";
+export const SUMMARY = "Final-year Computer Science undergraduate at SRMIST focused on governed AI workflows, LLMs, prompt and context engineering, structured outputs, tool calling, and agentic pipelines. I build dependable AI systems with RAG, vector search, automated evals, and quality-control layers, alongside the schemas and internal tools teams need to ship them safely.";
 
 export const PROFILE = {
   name: "Srijan Singh",
-  role: "AI Generalist & Workflow Tools Developer",
-  subRole: "AI Tool Building • Python & JavaScript • Frictionless Workflows",
+  role: "AI Workflow & Full-Stack Engineer",
+  subRole: "Agentic AI · LLM evaluation · RAG · Internal tools",
   college: "SRM Institute of Science and Technology",
   cgpa: "9.14/10",
   email: "ss8566@srmist.edu.in",
@@ -635,25 +614,25 @@ export const PROFILE = {
   phone: "+91 9838027276",
   rawPhone: "9838027276",
   location: "Chennai, India",
-  bio: "Engineering undergraduate specializing in creative design and AI driven workflow optimization. I identify friction points across creative teams and build simple, frictionless scripts, internal utilities, and web applications in Python and JavaScript to accelerate execution from concept to final product.",
+  bio: "I build governed AI workflows that are structured, testable, and ready for real users—from agentic pipelines and RAG systems to evaluation suites, schemas, and polished internal tools.",
   github: "https://github.com/SrijanSingh2006",
   linkedin: "https://www.linkedin.com/in/srijan-singh-999a552a9",
   leetcode: "https://leetcode.com/u/Srijan1234/",
-  resumePdfUrl: "https://drive.google.com/file/d/192eVKh2W3c9Ox8injM8KTWnIeb65oGRT/view?usp=sharing",
+  resumePdfUrl: `${import.meta.env.BASE_URL}Srijan_Singh_Resume.pdf`,
 };
 
 export const STATS = [
-  { value: "7", label: "Interactive Platforms", caption: "AI & Workflow Tools" },
-  { value: "92.1%", label: "Model Accuracy", caption: "Deep learning & NLP" },
-  { value: "9.14", label: "CGPA", caption: "SRM University" },
-  { value: "3", label: "Internships", caption: "AI, Web & Scripting" },
+  { value: "9.14", label: "CGPA", caption: "SRMIST · CSE" },
+  { value: "3", label: "Internships", caption: "AI · tooling · QC" },
+  { value: "7", label: "Projects", caption: "AI systems & tools" },
+  { value: "92.1%", label: "Model accuracy", caption: "EmotionAI benchmark" },
 ];
 
 export const ABOUT_PARAGRAPHS = [
-  "I'm an engineering undergraduate at SRM Institute of Science and Technology (9.14 CGPA) with a strong software development focus and an acute interest in creative design and AI driven workflow optimization.",
-  "I specialize in identifying workflow friction points, bottlenecks, and repetitive tasks across creative and technical teams, rigorously testing emerging AI platforms, and building simple, frictionless scripts and internal web applications using Python and JavaScript.",
-  "From building automated prompt orchestration utilities and multi-source collection tools (Google GenAI SDK, Playwright) to computer vision document workflows (OpenCV) and distributed queue engines (BullMQ, Redis), I build tools that are immediately accessible and usable.",
-  "Adept at integrating generative AI and visualization tools from initial ideation to final execution, authoring clear process documentation and tutorials, and explaining technical concepts to non technical stakeholders."
+  "I'm a final-year Computer Science undergraduate at SRMIST with a 9.14 CGPA, focused on building reliable AI workflows and full-stack tools.",
+  "My work spans agentic multi-step pipelines, structured outputs, RAG and vector databases, and automated evaluation that checks accuracy, completeness, and schema alignment.",
+  "I care about the engineering around AI too: versioned prompts, human review gates, testable schemas, CI validation, and clear interfaces for authors and reviewers.",
+  "I work across Python, TypeScript, React, FastAPI, and GitHub Actions, and enjoy turning loosely defined needs into tools people can trust."
 ];
 
 export const PROFILES = [

@@ -1,132 +1,43 @@
 import { motion } from "framer-motion";
-import { SUMMARY, SKILL_CATEGORIES, EXPERIENCE, CERTIFICATIONS } from "../../data/portfolioData";
+import { Braces, Database, GitPullRequest, MessagesSquare, ArrowUpRight } from "lucide-react";
+import { SKILL_CATEGORIES, PROFILE } from "../../data/portfolioData";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 80, damping: 15, delay: i * 0.08 },
-  }),
-};
-
+const skillIcons = [Braces, Database, GitPullRequest, MessagesSquare];
 
 export default function FigmaAboutSection() {
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
-    <section id="about" className="w-full py-28 section-gradient relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-[#6366f1]/5 blur-[100px] pointer-events-none" />
+    <section id="about" className="about-editorial">
+      <div className="section-shell about-layout">
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} className="about-story">
+          <p className="eyebrow"><span>01</span> A LITTLE ABOUT HOW I WORK</p>
+          <h2>The useful part of AI is what happens <em>after</em> the prompt.</h2>
+          <p className="about-lede">I’m a final-year CSE undergrad at SRMIST, drawn to the engineering that keeps AI applications dependable: schemas, evaluation, review states, and good interfaces.</p>
+          <p className="about-detail">I like taking fuzzy requirements and making them concrete. In practice, that means building a small tool, checking its edge cases, documenting how it works, and listening when a user says something feels off.</p>
 
-      <div className="max-w-7xl mx-auto px-6">
+          <div className="about-facts">
+            <div><span>01</span><strong>Think in systems</strong><p>Prompts, data contracts, and failure paths belong in the same conversation.</p></div>
+            <div><span>02</span><strong>Make it legible</strong><p>Clear tools and careful documentation help teams work with AI confidently.</p></div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="section-label mb-4"
-        >
-          About Me
+          <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="text-link about-link">A little more on LinkedIn <ArrowUpRight size={15} /></a>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ type: "spring", stiffness: 60, damping: 20 }}
-          >
-            <h2 className="font-display text-4xl md:text-5xl font-black mb-6 leading-tight">
-              Work Process &{" "}
-              <span className="gradient-text">Core Skills</span>
-            </h2>
-
-            <p className="text-textMuted leading-relaxed mb-8 text-base">
-              {SUMMARY}
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-10">
-              {[
-                { emoji: "🎓", label: "B.Tech CSE", sub: "9.14 CGPA • SRMIST" },
-                { emoji: "📍", label: "Chennai", sub: "India" },
-                { emoji: "💼", label: "3 Remote Internships", sub: "AI & Workflows" },
-                { emoji: "📜", label: "7 Certifications", sub: "SAP, McKinsey, IIT" },
-              ].map((fact, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -4, scale: 1.04 }}
-                  className="glass-card px-4 py-3 flex items-center gap-3"
-                >
-                  <span className="text-xl">{fact.emoji}</span>
-                  <div>
-                    <p className="text-xs font-bold text-textMain">{fact.label}</p>
-                    <p className="text-xs text-textSubtle">{fact.sub}</p>
-                  </div>
+        <div className="skills-editorial">
+          <div className="skills-heading"><p className="eyebrow">TOOLS I USE</p><span className="skills-caption">Areas I work across</span></div>
+          <div className="skill-list">
+            {SKILL_CATEGORIES.map((group, index) => {
+              const Icon = skillIcons[index] || Braces;
+              return (
+                <motion.div key={group.id || group.title} initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: .4, delay: index * .07 }} className="skill-row">
+                  <div className="skill-row-icon"><Icon size={18} strokeWidth={1.7} /></div>
+                  <div className="skill-row-content"><div><span className="skill-row-index">0{index + 1}</span><h3>{group.title}</h3></div><p>{group.skills.join(" · ")}</p></div>
                 </motion.div>
-              ))}
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.04, y: -2 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => scrollTo("projects")}
-              className="btn-primary"
-            >
-              View My Portfolio
-            </motion.button>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {SKILL_CATEGORIES.map((group, i) => (
-              <motion.div
-                key={group.title || group.name}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-30px" }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="glass-card p-5 flex flex-col"
-                style={{ borderColor: `${group.color}22` }}
-              >
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4"
-                  style={{ background: `${group.color}18` }}
-                >
-                  {group.icon}
-                </div>
-                <h3
-                  className="font-display font-bold text-base mb-3"
-                  style={{ color: group.color }}
-                >
-                  {group.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full text-textMuted"
-                      style={{
-                        background: `${group.color}12`,
-                        border: `1px solid ${group.color}28`,
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
+          <div className="toolkit-foot"><span>RECENTLY USED</span><p>Python <i>·</i> TypeScript <i>·</i> React <i>·</i> FastAPI <i>·</i> GitHub Actions</p></div>
         </div>
       </div>
     </section>
   );
 }
-
-
-

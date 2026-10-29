@@ -1,175 +1,54 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Phone } from "lucide-react";
 import { Github, Linkedin } from "../Icons";
 import { PROFILE } from "../../data/portfolioData";
 
 export default function MinimalContactSection() {
+  const [copied, setCopied] = useState(false);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = `mailto:${PROFILE.email}`;
+    }
+  };
+
   return (
-    <section id="contact" className="w-full py-28 section-gradient relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#6366f1]/8 blur-[120px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="section-label justify-center mb-4">Get In Touch</div>
-          <h2 className="font-display text-4xl md:text-5xl font-black mb-4">
-            Let&apos;s <span className="gradient-text">Work Together</span>
-          </h2>
-          <p className="text-textMuted max-w-xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
+    <section id="contact" className="contact-editorial">
+      <div className="section-shell contact-layout">
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="contact-message">
+          <p className="eyebrow"><span>05</span> GET IN TOUCH</p>
+          <p className="contact-note">For teams building something thoughtful</p>
+          <h2>Have a real problem?<br /><span>Let’s talk it through.</span></h2>
+          <p className="contact-description">I’m open to AI/ML internships and engineering opportunities. If your team cares about making AI useful and dependable, I’d be glad to hear what you’re working on.</p>
+          <a href={`mailto:${PROFILE.email}?subject=${encodeURIComponent("Hello from your portfolio")}`} className="contact-primary">Write me an email <ArrowUpRight size={17} /></a>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 60, damping: 20 }}
-            className="lg:col-span-2 flex flex-col gap-5"
-          >
-            {[
-              {
-                icon: <Mail size={18} />,
-                label: "Email Me",
-                value: PROFILE.email,
-                href: `mailto:${PROFILE.email}`,
-                color: "#6366f1",
-              },
-              {
-                icon: <Phone size={18} />,
-                label: "Call Me",
-                value: PROFILE.phone,
-                href: `tel:+919838027276`,
-                color: "#8b5cf6",
-              },
-              {
-                icon: <MapPin size={18} />,
-                label: "Location",
-                value: PROFILE.location,
-                href: null,
-                color: "#22d3ee",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ x: 6, scale: 1.02 }}
-                className="glass-card p-5 flex items-center gap-4"
-                style={{ borderColor: `${item.color}22` }}
-              >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${item.color}18`, color: item.color }}
-                >
-                  {item.icon}
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-textSubtle mb-1">{item.label}</p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="font-semibold text-textMain hover:text-[#818cf8] transition-colors text-sm"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="font-semibold text-textMain text-sm">{item.value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="glass-card p-5 mt-2"
-            >
-              <p className="text-xs font-bold uppercase tracking-wider text-textSubtle mb-4">Connect Online</p>
-              <div className="flex gap-3">
-                {[
-                  { icon: <Github size={18} />, href: PROFILE.github, label: "GitHub" },
-                  { icon: <Linkedin size={18} />, href: PROFILE.linkedin, label: "LinkedIn" },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 glass px-4 py-2.5 rounded-xl text-sm font-medium text-textMuted hover:text-[#a5b4fc] border border-[rgba(99,102,241,0.2)] hover:border-[rgba(99,102,241,0.5)] transition-all"
-                  >
-                    {social.icon}
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.15 }}
-            className="lg:col-span-3 glass-card p-8"
-          >
-            <h3 className="font-display font-bold text-xl mb-6 gradient-text">Send a Message</h3>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-5" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-textSubtle uppercase tracking-wider">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="picto-input"
-                  id="contact-name"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold text-textSubtle uppercase tracking-wider">Email</label>
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="picto-input"
-                  id="contact-email"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 md:col-span-2">
-                <label className="text-xs font-semibold text-textSubtle uppercase tracking-wider">Subject</label>
-                <input
-                  type="text"
-                  placeholder="Project / Opportunity / Collaboration"
-                  className="picto-input"
-                  id="contact-subject"
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 md:col-span-2">
-                <label className="text-xs font-semibold text-textSubtle uppercase tracking-wider">Message</label>
-                <textarea
-                  placeholder="Tell me about your project or idea..."
-                  rows="5"
-                  className="picto-input resize-none"
-                  id="contact-message"
-                />
-              </div>
-              <div className="md:col-span-2">
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="btn-primary w-full justify-center gap-2"
-                  id="contact-submit-btn"
-                >
-                  <Send size={16} />
-                  Send Message
-                </motion.button>
-              </div>
-            </form>
-          </motion.div>
-        </div>
+        <motion.div initial={{ opacity: 0, x: 18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="contact-card">
+          <div className="contact-card-heading"><span>CONTACT DETAILS</span><span className="contact-card-mark">SS / 26</span></div>
+          <div className="contact-detail-row">
+            <div className="contact-detail-icon"><Mail size={17} /></div>
+            <div className="contact-detail-copy"><span>EMAIL</span><a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></div>
+            <button className="copy-email" onClick={copyEmail} aria-label="Copy email address" title="Copy email address">{copied ? <Check size={16} /> : <Copy size={15} />}</button>
+          </div>
+          <div className="contact-detail-row">
+            <div className="contact-detail-icon"><Phone size={17} /></div>
+            <div className="contact-detail-copy"><span>PHONE</span><a href="tel:+919838027276">{PROFILE.phone}</a></div>
+            <ArrowUpRight size={15} className="contact-row-arrow" />
+          </div>
+          <div className="contact-detail-row">
+            <div className="contact-detail-icon"><MapPin size={17} /></div>
+            <div className="contact-detail-copy"><span>BASED IN</span><p>{PROFILE.location}</p></div>
+          </div>
+          <div className="contact-card-footer"><span>FIND ME ONLINE</span><div>
+            <a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={17} /></a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={17} /></a>
+            <a href={PROFILE.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode">LC</a>
+          </div></div>
+        </motion.div>
       </div>
     </section>
   );
