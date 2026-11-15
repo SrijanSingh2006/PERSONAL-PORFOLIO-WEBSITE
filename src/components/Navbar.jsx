@@ -39,7 +39,7 @@ export default function Navbar({ onOpenResume, theme = "dark", onToggleTheme }) 
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.1 }}
-        className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        className={`portfolio-nav w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
           scrolled
             ? "glass border-b border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)]"
             : "bg-transparent border-b border-transparent"
