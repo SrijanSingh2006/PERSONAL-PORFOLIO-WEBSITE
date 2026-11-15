@@ -14,7 +14,7 @@ export default function ResumeSection({ onOpenResume }) {
             <a className="resume-download" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><Download size={16} /> Open résumé PDF <ArrowUpRight size={14} /></a>
             <button className="resume-preview-link" onClick={onOpenResume}><Eye size={16} /> View details</button>
           </div>
-          <span className="resume-file-note"><FileText size={13} /> Srijan_Singh_Resume.pdf · Updated 2026</span>
+          <span className="resume-file-note"><FileText size={13} /> Srijan_Singh_Resume_Deccan.pdf</span>
         </motion.div>
 
         <motion.button initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} onClick={onOpenResume} className="resume-paper" aria-label="Open résumé preview">

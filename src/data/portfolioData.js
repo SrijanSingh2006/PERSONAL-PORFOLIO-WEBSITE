@@ -317,7 +317,7 @@ export const PROFILE = {
   github: "https://github.com/SrijanSingh2006",
   linkedin: "https://www.linkedin.com/in/srijan-singh-999a552a9",
   leetcode: "https://leetcode.com/u/Srijan1234/",
-  resumePdfUrl: `${import.meta.env.BASE_URL}Srijan_Singh_Resume.pdf`,
+  resumePdfUrl: `${import.meta.env.BASE_URL}Srijan_Singh_Resume_Deccan.pdf`,
 };
 
 export const STATS = [

@@ -21,12 +21,12 @@ export default function ResumeModal({ isOpen, onClose }) {
               <div><span className="resume-viewer-mark">SS</span><span><strong>{PROFILE.name}</strong><small>Résumé · 2026</small></span></div>
               <div className="resume-viewer-actions">
                 <a href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><ExternalLink size={15} /><span>Open separately</span></a>
-                <a href={PROFILE.resumePdfUrl} download="Srijan_Singh_Resume.pdf"><Download size={15} /><span>Download PDF</span></a>
+                <a href={PROFILE.resumePdfUrl} download="Srijan_Singh_Resume_Deccan.pdf"><Download size={15} /><span>Download PDF</span></a>
                 <button onClick={onClose} aria-label="Close résumé preview"><X size={19} /></button>
               </div>
             </div>
             <div className="resume-page-stack" aria-label="Résumé pages">
-              {[1, 2, 3].map((page) => <img key={page} src={`${import.meta.env.BASE_URL}resume-pages/resume-page-${page}.png`} alt={`Srijan Singh résumé, page ${page} of 3`} loading={page === 1 ? "eager" : "lazy"} />)}
+              {[1, 2, 3].map((page) => <img key={page} src={`${import.meta.env.BASE_URL}resume-deccan/page-${page}.png`} alt={`Srijan Singh résumé, page ${page} of 3`} loading={page === 1 ? "eager" : "lazy"} />)}
             </div>
           </motion.div>
         </div>
