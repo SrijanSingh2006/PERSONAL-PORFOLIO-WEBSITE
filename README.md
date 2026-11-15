@@ -7,7 +7,7 @@ Welcome to the source code of my personal portfolio website! I am an **AI/ML Dev
 🌐 **Live Website**: [https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
 
 ## 🚀 About the Project
-This repository hosts my modern, responsive portfolio, built with a premium dark-theme UI, smooth framer-motion animations, and glassmorphism design. It acts as a digital resume and a showcase for my core projects like **AGRICOMPLY**, **EmotionAI**, **TripMacha**, and more.
+This repository hosts my responsive portfolio, built with React, Framer Motion, and a light/dark editorial interface. It acts as a digital résumé and a showcase for work across applied AI/ML, full-stack engineering, data tools, and product systems.
 
 ### Tech Stack
 - **Framework**: React (Vite)
@@ -17,8 +17,9 @@ This repository hosts my modern, responsive portfolio, built with a premium dark
 - **Deployment**: GitHub Pages
 
 ## ⚡ Features
-- **Dynamic Projects Fetching**: Automatically fetches my most recent open-source projects using the GitHub API.
-- **Premium Aesthetics**: Built with a sleek dark mode, glowing accents, and glassmorphism.
+- **Curated Project Case Studies**: Browse selected GitHub projects by AI/ML, full-stack, or data and product work.
+- **Project Details**: Open a project to see its challenge, approach, implementation flow, model notes, and source link.
+- **Two Colour Modes**: Switch between a soft lilac-and-sea-glass light theme and a deep ink dark theme.
 - **Micro-Interactions**: Includes a custom magnetic cursor, scroll progress bar, and an initializing loader sequence.
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile viewing.
 

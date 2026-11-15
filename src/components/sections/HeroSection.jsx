@@ -5,7 +5,7 @@ import { PROFILE } from "../../data/portfolioData";
 
 const proof = [
   { value: "9.14", label: "CGPA · SRMIST" },
-  { value: "92.1%", label: "NLP model accuracy" },
+  { value: "92.10%", label: "Moodline test accuracy" },
   { value: "3", label: "Internships" },
 ];
 
@@ -30,8 +30,12 @@ export default function HeroSection() {
         >
           <div className="hero-location"><span className="availability-dot" /><MapPin size={14} /><span>Chennai, India</span><span className="location-divider">/</span><span>SRMIST · B.Tech CSE</span></div>
           <p className="hero-greeting">Hello, I’m Srijan.</p>
-          <h1>I build AI systems<br className="desktop-break" /> that hold up <span>after the demo.</span></h1>
-          <p className="hero-description">Agentic workflows, retrieval systems, and the evaluation tools around them. I care about making LLM applications structured, testable, and useful to the people who rely on them.</p>
+          <h1>I build useful software<br className="desktop-break" /> from AI models to <span>full-stack products.</span></h1>
+          <p className="hero-description">I’m a computer science student working across AI/ML engineering, applied AI, and full-stack development. I turn ideas into useful products, with careful attention to model quality, clear interfaces, and reliable systems.</p>
+
+          <div className="hero-disciplines" aria-label="Roles and areas of work">
+            {["AI / ML Engineer", "Applied AI", "Full-Stack Developer", "Software Engineer"].map((discipline) => <span key={discipline}>{discipline}</span>)}
+          </div>
 
           <div className="hero-actions">
             <button onClick={() => scrollTo("projects")} className="btn-primary hero-project-link">Explore selected work <ArrowDownRight size={17} /></button>

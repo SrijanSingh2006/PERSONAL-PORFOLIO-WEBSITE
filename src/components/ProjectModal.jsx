@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowUpRight, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Layers, X } from "lucide-react";
 import { Github } from "./Icons";
 
 export default function ProjectModal({ project, onClose }) {
@@ -24,96 +24,106 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <AnimatePresence>
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-md overflow-y-auto"
+      <motion.div
+        className="project-modal-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: .2 }}
         onClick={onClose}
         role="dialog"
         aria-modal="true"
-        aria-label={`${project.title} project details`}
+        aria-labelledby="project-modal-title"
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 18 }}
+        <motion.section
+          initial={{ opacity: 0, scale: .97, y: 18 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.97, y: 12 }}
-          transition={{ type: "spring", duration: 0.36, bounce: 0.16 }}
+          exit={{ opacity: 0, scale: .98, y: 12 }}
+          transition={{ type: "spring", duration: .38, bounce: .12 }}
           onClick={(event) => event.stopPropagation()}
           ref={modalRef}
-          className="project-modal relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-2xl sm:p-9"
+          className="project-modal"
         >
-          <button
-            onClick={onClose}
-            aria-label="Close project details"
-            className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-textMuted transition hover:border-violet-300 hover:text-violet-600 sm:right-7 sm:top-7"
-          >
-            <X size={18} />
-          </button>
-
-          <div className="mb-6 flex flex-wrap items-center gap-2 pr-12">
-            <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-violet-700">
-              {project.badge}
-            </span>
-            <span className="font-mono text-xs text-textSubtle">{project.date}</span>
+          <div className="project-modal-topline">
+            <span><Layers size={15} /> PROJECT NOTES</span>
+            <button onClick={onClose} aria-label="Close project details" className="project-modal-close"><X size={18} /></button>
           </div>
 
-          <h2 className="mb-2 font-display text-3xl font-black tracking-tight text-textMain sm:text-4xl">
-            {project.title}
-          </h2>
-          <p className="mb-6 max-w-2xl text-sm leading-relaxed text-textMuted sm:text-base">
-            {project.subtitle}
-          </p>
-
-          <div className="mb-7 rounded-2xl border border-violet-200/70 bg-violet-50/70 p-5 sm:p-6">
-            <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-violet-700">
-              <Layers size={15} /> Project overview
+          <header className="project-modal-header">
+            <div className="project-modal-tags">
+              {project.categories?.map((category) => <span key={category}>{category}</span>)}
             </div>
-            <p className="text-sm leading-relaxed text-textMain">
-              {project.shortDescription || project.description}
-            </p>
+            <p className="project-modal-eyebrow">{project.badge}</p>
+            <h2 id="project-modal-title">{project.title}</h2>
+            <p className="project-modal-subtitle">{project.shortDescription}</p>
+          </header>
+
+          <div className="project-context-grid">
+            <section className="project-context-card">
+              <span>THE CHALLENGE</span>
+              <p>{project.problem}</p>
+            </section>
+            <section className="project-context-card project-context-card-accent">
+              <span>THE APPROACH</span>
+              <p>{project.solution}</p>
+            </section>
           </div>
 
-          {project.bullets?.length > 0 && (
-            <div className="mb-7">
-              <h3 className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-textSubtle">
-                <CheckCircle2 size={15} className="text-violet-500" /> Resume highlights
-              </h3>
-              <div className="space-y-3">
-                {project.bullets.map((bullet, index) => (
-                  <motion.div
-                    key={bullet}
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.07 }}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-textMuted"
-                  >
-                    <span className="mt-0.5 font-bold text-violet-500">↗</span>
-                    <span>{bullet}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
+          <div className="project-modal-content-grid">
+            <div className="project-modal-main">
+              <section className="project-detail-section">
+                <h3><CheckCircle2 size={16} /> What I built</h3>
+                <ul className="project-highlight-list">
+                  {project.bullets?.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                </ul>
+              </section>
 
-          <div className="mb-8 border-t border-slate-200 pt-5">
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-textSubtle">Built with</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies?.map((technology) => (
-                <span key={technology} className="tech-tag">{technology}</span>
-              ))}
+              <section className="project-detail-section">
+                <h3><Layers size={16} /> Implementation flow</h3>
+                <ol className="project-build-flow">
+                  {project.buildSteps?.map((step, index) => (
+                    <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><p>{step}</p></li>
+                  ))}
+                </ol>
+              </section>
             </div>
+
+            <aside className="project-modal-aside">
+              {project.mlModelDetails && (
+                <section className="project-model-card">
+                  <span className="project-aside-label">MODEL & EVALUATION</span>
+                  <h3>{project.mlModelDetails.algorithm}</h3>
+                  <p>{project.mlModelDetails.evaluationMetrics}</p>
+                </section>
+              )}
+              {project.resultsHighlight && (
+                <section className="project-result-card">
+                  <span className="project-aside-label">PROJECT HIGHLIGHT</span>
+                  <p>{project.resultsHighlight}</p>
+                </section>
+              )}
+            </aside>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 border-t border-slate-200 pt-5">
-            <a href={project.githubLink || project.github} target="_blank" rel="noreferrer" className="btn-primary gap-2">
+          <section className="project-modal-stack">
+            <h3>Built with</h3>
+            <div className="project-modal-tech">
+              {project.technologies?.map((technology) => <span key={technology}>{technology}</span>)}
+            </div>
+          </section>
+
+          <footer className="project-modal-actions">
+            <a href={project.githubLink} target="_blank" rel="noreferrer" className="project-modal-source">
               <Github size={16} /> View source <ArrowUpRight size={15} />
             </a>
-            {project.liveDemo && project.liveDemo !== "#" && (
-              <a href={project.liveDemo} target="_blank" rel="noreferrer" className="btn-outline gap-2">
+            {project.liveDemo && (
+              <a href={project.liveDemo} target="_blank" rel="noreferrer" className="project-modal-demo">
                 Live demo <ArrowUpRight size={15} />
               </a>
             )}
-          </div>
-        </motion.div>
-      </div>
+          </footer>
+        </motion.section>
+      </motion.div>
     </AnimatePresence>
   );
 }
