@@ -9,7 +9,7 @@ export default function ResumeSection({ onOpenResume }) {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="resume-intro">
           <p className="eyebrow"><span>04</span> RÉSUMÉ</p>
           <h2>The short version<br /><em>is here.</em></h2>
-          <p>Computer Science at SRMIST, 9.14 CGPA. Three internships and a growing collection of projects across AI, data, and full-stack engineering.</p>
+          <p>Computer Science at SRMIST, 9.14 CGPA. Three internships across software and AI evaluation, full-stack development, and machine learning data quality.</p>
           <div className="resume-actions">
             <a className="resume-download" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><Download size={16} /> Open résumé PDF <ArrowUpRight size={14} /></a>
             <button className="resume-preview-link" onClick={onOpenResume}><Eye size={16} /> View details</button>
@@ -23,7 +23,7 @@ export default function ResumeSection({ onOpenResume }) {
           <div className="paper-rule" />
           <div className="paper-focus"><span>FOCUS</span><p>Agentic AI <i>·</i> RAG <i>·</i> LLM evaluation <i>·</i> Full-stack tools</p></div>
           <div className="paper-columns">
-            <div><span>EXPERIENCE</span><strong>CodeAlpha</strong><small>AI Research & Workflow Engineering</small><strong>Prodigy Infotech</strong><small>Full-Stack AI Tooling & Schema Engineering</small></div>
+            <div><span>EXPERIENCE</span><strong>CodeAlpha</strong><small>Software & AI Evaluation</small><strong>Prodigy Infotech</strong><small>Full-Stack & Backend Development</small><strong>Sukh Sagar Industries</strong><small>Machine Learning & Data Quality</small></div>
             <div><span>SELECTED WORK</span><strong>TRIPMACHA</strong><small>Agentic workflow & QC pipeline</small><strong>AGRICOMPLY</strong><small>RAG & human review gates</small></div>
           </div>
           <div className="paper-footer"><span>PYTHON · TYPESCRIPT · REACT · FASTAPI</span><span>9.14 / 10 <ArrowDownRight size={13} /></span></div>

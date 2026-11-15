@@ -140,7 +140,7 @@ export const SKILL_CATEGORIES = [
 
 export const EXPERIENCE = [
   {
-    role: "AI Research & Workflow Engineering Intern",
+    role: "Software & AI Evaluation Intern – Code Review & Reference Solutions",
     company: "CodeAlpha",
     date: "Jul 2026 - Aug 2026",
     period: "Jul 2026 - Aug 2026",
@@ -148,14 +148,14 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1I_2B9hjd6XQcvydrspvsg5dUjjd2550C/view?usp=sharing",
     highlights: [
-      "Built governed, multi-step AI workflows in Python using prompt and context engineering, tool calling, and structured JSON outputs, with phase sequencing and human review gates.",
-      "Implemented RAG and vector database pipelines with an AI-led quality-control layer for accuracy, completeness, and schema alignment.",
-      "Created automated evaluation suites, benchmark test sets, and validation scripts to catch hallucinations and formatting errors early."
+      "Wrote algorithmic and debugging tasks in Python and C++ to assess edge-case handling, time complexity, and multi-step problem solving.",
+      "Evaluated AI-generated code and reasoning for logical correctness, identifying off-by-one errors, memory leaks, and flawed assumptions.",
+      "Authored structured explanations and verified reference solutions against quality rubrics and review guidelines."
     ],
-    technologies: ["Python", "LLMs", "RAG", "Vector databases", "Evaluation", "JSON Schema"]
+    technologies: ["Python", "C++", "Code review", "AI evaluation", "Algorithms", "Debugging"]
   },
   {
-    role: "Full-Stack AI Tooling & Schema Engineering Intern",
+    role: "Full-Stack & Backend Software Development Intern",
     company: "Prodigy Infotech",
     date: "Feb 2025 - Mar 2025",
     period: "Feb 2025 - Mar 2025",
@@ -163,14 +163,14 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1mXx4R0Mr8xgY0qGclvHf_kTqi9cvtATP/view",
     highlights: [
-      "Developed internal full-stack tools, REST APIs, and authoring interfaces with Python, JavaScript, TypeScript, React, HTML, and CSS.",
-      "Designed JSON schemas and relational structures to validate and store structured content from the start.",
-      "Moved prompts, context, schemas, and templates into versioned GitHub repositories with branching, pull requests, and GitHub Actions validation."
+      "Developed and debugged full-stack modules using JavaScript, Python, and Java across REST APIs and responsive interfaces.",
+      "Investigated runtime defects in existing codebases and wrote automated unit tests for boundary inputs and state transitions.",
+      "Adapted to changing requirements and documented technical walkthroughs for reviewers and team leads."
     ],
-    technologies: ["TypeScript", "React", "Python", "REST APIs", "JSON Schema", "GitHub Actions"]
+    technologies: ["JavaScript", "Python", "Java", "REST APIs", "Unit testing", "Debugging"]
   },
   {
-    role: "Quality Control & Assessment Pipeline Intern",
+    role: "Machine Learning & Data Quality Intern",
     company: "Sukh Sagar Industries",
     date: "Mar 2025 - Apr 2025",
     period: "Mar 2025 - Apr 2025",
@@ -178,11 +178,11 @@ export const EXPERIENCE = [
     location: "Remote",
     certificateUrl: "https://drive.google.com/file/d/1S8na70Nu8c5CB89282aVpVc7tT7tZIOA/view?usp=sharing",
     highlights: [
-      "Extended automated validation for structured assessments, including MCQs, single- and multi-file code submissions, file uploads, and rubric templates.",
-      "Wrote and verified test cases for code correctness, answer coverage, rubric validity, and specification alignment before deployment.",
-      "Worked with content authors to turn workflow pain points and review corrections into better source templates."
+      "Evaluated Python machine learning and data science pipelines, auditing model predictions and SQL query outputs against ground-truth datasets.",
+      "Identified failure modes in classification and numerical estimation scripts and documented why edge cases produced inaccurate outputs.",
+      "Collaborated with project leads and peer reviewers to meet accuracy standards and daily turnaround targets."
     ],
-    technologies: ["Python", "Test cases", "Assessment pipelines", "Rubrics", "Quality control"]
+    technologies: ["Python", "SQL", "Machine learning", "Data quality", "Error analysis"]
   },
   {
     role: "AI Workflow & Technical Lead",
