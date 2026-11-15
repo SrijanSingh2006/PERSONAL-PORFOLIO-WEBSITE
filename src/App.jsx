@@ -11,19 +11,33 @@ import ResumeModal from "./components/ResumeModal";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 
+function getInitialTheme() {
+  try {
+    const saved = localStorage.getItem("portfolio-theme");
+    if (saved === "light" || saved === "dark") return saved;
+  } catch {
+    // The toggle still works for this visit if browser storage is unavailable.
+  }
+  return "light";
+}
+
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem("portfolio-theme") || "light");
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    localStorage.setItem("portfolio-theme", theme);
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch {
+      // Keep the current theme in memory when storage is blocked.
+    }
   }, [theme]);
 
   return (
     <div className={`portfolio-shell min-h-screen text-textMain font-sans overflow-x-hidden ${theme === "dark" ? "theme-dark" : "theme-light"}`}>
       <ScrollProgress />
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} theme={theme} onToggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} />
+      <Navbar onOpenResume={() => setIsResumeOpen(true)} theme={theme} onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
 
       <main className="flex flex-col w-full">
         <HeroSection />

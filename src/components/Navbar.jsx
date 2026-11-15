@@ -76,7 +76,7 @@ export default function Navbar({ onOpenResume, theme = "dark", onToggleTheme }) 
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <motion.button whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }} onClick={onToggleTheme} className="theme-toggle" aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+            <motion.button type="button" whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }} onClick={onToggleTheme} className="theme-toggle" aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} aria-pressed={theme === "dark"} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
               {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             </motion.button>
             <motion.button
@@ -98,7 +98,7 @@ export default function Navbar({ onOpenResume, theme = "dark", onToggleTheme }) 
           </div>
 
           <div className="flex md:hidden items-center gap-2">
-            <button className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+            <button type="button" className="theme-toggle" onClick={onToggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} aria-pressed={theme === "dark"} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
               {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             </button>
             <button className="text-textMuted hover:text-textMain transition-colors p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
