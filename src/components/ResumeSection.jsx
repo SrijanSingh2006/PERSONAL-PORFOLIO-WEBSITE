@@ -9,7 +9,7 @@ export default function ResumeSection({ onOpenResume }) {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="resume-intro">
           <p className="eyebrow"><span>04</span> RÉSUMÉ</p>
           <h2>The short version<br /><em>is here.</em></h2>
-          <p>Computer Science at SRMIST, 9.14 CGPA. Three internships across AI workflows, internal tools, and quality pipelines. Seven projects where I’ve put those ideas into practice.</p>
+          <p>Computer Science at SRMIST, 9.14 CGPA. Three internships and a growing collection of projects across AI, data, and full-stack engineering.</p>
           <div className="resume-actions">
             <a className="resume-download" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><Download size={16} /> Open résumé PDF <ArrowUpRight size={14} /></a>
             <button className="resume-preview-link" onClick={onOpenResume}><Eye size={16} /> View details</button>

@@ -29,8 +29,8 @@ export default function HeroSection() {
           className="hero-copy"
         >
           <div className="hero-location"><span className="availability-dot" /><MapPin size={14} /><span>Chennai, India</span><span className="location-divider">/</span><span>SRMIST · B.Tech CSE</span></div>
-          <p className="hero-greeting">Hello, I’m Srijan.</p>
-          <h1>I build useful software<br className="desktop-break" /> from AI models to <span>full-stack products.</span></h1>
+          <p className="hero-greeting"><span className="hero-greeting-star">✳</span> Hello, I’m Srijan Singh</p>
+          <h1>Ideas meet<br /><span>intelligence.</span></h1>
           <p className="hero-description">I’m a computer science student working across AI/ML engineering, applied AI, and full-stack development. I turn ideas into useful products, with careful attention to model quality, clear interfaces, and reliable systems.</p>
 
           <div className="hero-disciplines" aria-label="Roles and areas of work">
@@ -79,6 +79,12 @@ export default function HeroSection() {
           </motion.div>
           <div className="hero-stamp" aria-hidden="true">S<span>·</span>S</div>
         </motion.div>
+      </div>
+
+      <div className="hero-ticker" aria-label="Areas of work: artificial intelligence, machine learning, full-stack development and data">
+        <div className="hero-ticker-track" aria-hidden="true">
+          {[0, 1].map((copy) => <div className="hero-ticker-group" key={copy}><span>ARTIFICIAL INTELLIGENCE</span><i>✳</i><span>MACHINE LEARNING</span><i>✳</i><span>FULL-STACK DEVELOPMENT</span><i>✳</i><span>DATA & PRODUCT</span><i>✳</i></div>)}
+        </div>
       </div>
 
       <div className="hero-proof-strip">

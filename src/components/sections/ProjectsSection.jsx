@@ -83,6 +83,7 @@ function ProjectCard({ project, index, total, onOpen }) {
       <div className="project-art" aria-hidden="true">
         <div className="project-art-top"><span className="project-number">{String(index + 1).padStart(2, "0")} <i>/ {String(total).padStart(2, "0")}</i></span><span className="project-period">{project.displayLabel}</span></div>
         <div className="project-art-center">
+          <div className="project-art-ring ring-a" /><div className="project-art-ring ring-b" />
           <div className="project-icon"><Icon size={24} strokeWidth={1.65} /></div>
           <span className="project-art-caption">{art.flow[1]}</span>
         </div>

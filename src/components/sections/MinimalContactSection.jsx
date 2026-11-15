@@ -23,7 +23,7 @@ export default function MinimalContactSection() {
           <p className="eyebrow"><span>05</span> GET IN TOUCH</p>
           <p className="contact-note">For teams building something thoughtful</p>
           <h2>Have a real problem?<br /><span>Let’s talk it through.</span></h2>
-          <p className="contact-description">I’m open to AI/ML internships and engineering opportunities. If your team cares about making AI useful and dependable, I’d be glad to hear what you’re working on.</p>
+          <p className="contact-description">I’m open to AI/ML, software engineering, and full-stack opportunities. If you’re building something interesting, I’d love to hear about it.</p>
           <a href={`mailto:${PROFILE.email}?subject=${encodeURIComponent("Hello from your portfolio")}`} className="contact-primary">Write me an email <ArrowUpRight size={17} /></a>
         </motion.div>
 
