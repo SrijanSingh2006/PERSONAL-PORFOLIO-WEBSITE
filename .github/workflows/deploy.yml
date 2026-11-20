@@ -37,7 +37,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch --no-tags origin refs/heads/gh-pages:refs/remotes/origin/gh-pages
           git worktree add --detach deploy refs/remotes/origin/gh-pages
-          rsync -a --delete --exclude='.git' dist/ deploy/
+          rsync -a --checksum --delete --exclude='.git' dist/ deploy/
           git -C deploy add -A
           if ! git -C deploy diff --cached --quiet; then
             git -C deploy commit -m "Deploy ${GITHUB_SHA}"
