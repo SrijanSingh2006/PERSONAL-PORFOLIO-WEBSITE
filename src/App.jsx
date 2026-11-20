@@ -18,7 +18,7 @@ function getInitialTheme() {
   } catch {
     // The toggle still works for this visit if browser storage is unavailable.
   }
-  return "light";
+  return "dark";
 }
 
 export default function App() {
@@ -32,17 +32,19 @@ export default function App() {
     } catch {
       // Keep the current theme in memory when storage is blocked.
     }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#110f19" : "#f9f7fe");
   }, [theme]);
 
   return (
-    <div className={`portfolio-shell min-h-screen text-textMain font-sans overflow-x-hidden ${theme === "dark" ? "theme-dark" : "theme-light"}`}>
+    <div className={`portfolio-shell theme-${theme}`}>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <ScrollProgress />
       <Navbar onOpenResume={() => setIsResumeOpen(true)} theme={theme} onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
 
-      <main className="flex flex-col w-full">
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
+        <ProjectsSection onOpenModal={setSelectedProject} />
         <FigmaAboutSection />
-        <ProjectsSection onOpenModal={(project) => setSelectedProject(project)} />
         <ExperienceSection />
         <ResumeSection onOpenResume={() => setIsResumeOpen(true)} />
         <MinimalContactSection />
@@ -59,7 +61,6 @@ export default function App() {
 
       {isResumeOpen && (
         <ResumeModal
-          isOpen={isResumeOpen}
           onClose={() => setIsResumeOpen(false)}
         />
       )}

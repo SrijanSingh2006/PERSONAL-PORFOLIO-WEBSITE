@@ -1,110 +1,85 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Activity, ArrowRight, BarChart3, Braces, FileCheck2, GitBranch, MapPinned, ShieldCheck, ShoppingBag, Wallet, Workflow } from "lucide-react";
+import { Activity, BarChart3, Braces, FileCheck2, GitBranch, MapPinned, ShieldCheck, ShoppingBag, Wallet, Workflow } from "lucide-react";
 import { Github } from "../Icons";
+import { PROFILE } from "../../data/portfolioData";
 import { PROJECTS } from "../../data/projects";
 
 const projectArt = {
-  agricomply: { icon: ShieldCheck, accent: "moss", flow: ["DOCUMENTS", "RETRIEVE", "INSIGHTS"] },
-  moodline: { icon: Activity, accent: "rose", flow: ["TEXT", "BiGRU", "EMOTION"] },
-  skyline: { icon: BarChart3, accent: "blue", flow: ["LISTING", "PIPELINE", "ROOM TYPE"] },
-  tripmacha: { icon: Workflow, accent: "violet", flow: ["TRIP BRIEF", "PLAN", "ITINERARY"] },
-  ecoshield: { icon: MapPinned, accent: "teal", flow: ["FARM DATA", "MODEL", "MAP VIEW"] },
-  threadiq: { icon: ShoppingBag, accent: "gold", flow: ["DISCOVER", "ANALYZE", "IMPROVE"] },
-  reachinbox: { icon: GitBranch, accent: "indigo", flow: ["QUEUE", "RATE LIMIT", "DELIVER"] },
-  paypulse: { icon: Wallet, accent: "cyan", flow: ["EMPLOYEE", "BENEFITS", "HR REVIEW"] },
-  "excel-analytics": { icon: FileCheck2, accent: "lavender", flow: ["UPLOAD", "EXPLORE", "VISUALIZE"] },
+  agricomply: { Icon: ShieldCheck, color: "moss", image: "agricomply-dashboard.webp" },
+  moodline: { Icon: Activity, color: "rose" },
+  skyline: { Icon: BarChart3, color: "blue" },
+  tripmacha: { Icon: Workflow, color: "violet" },
+  ecoshield: { Icon: MapPinned, color: "teal" },
+  threadiq: { Icon: ShoppingBag, color: "gold" },
+  reachinbox: { Icon: GitBranch, color: "indigo" },
+  paypulse: { Icon: Wallet, color: "cyan" },
+  "excel-analytics": { Icon: FileCheck2, color: "lavender" },
 };
 
-const filters = ["All work", "AI & ML", "Full stack", "Data & product"];
+const filters = ["All work", "AI & ML", "Full stack", "Data & product"].map((label) => ({
+  label,
+  projects: label === "All work" ? PROJECTS : PROJECTS.filter((project) => project.categories.includes(label)),
+}));
 
 export default function ProjectsSection({ onOpenModal }) {
-  const [activeFilter, setActiveFilter] = useState("All work");
-  const visibleProjects = activeFilter === "All work"
-    ? PROJECTS
-    : PROJECTS.filter((project) => project.categories.includes(activeFilter));
+  const [activeFilter, setActiveFilter] = useState(filters[0]);
 
   return (
-    <section id="projects" className="projects-editorial relative overflow-hidden">
+    <section id="projects" className="section projects-section">
       <div className="section-shell">
-        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} className="projects-heading">
-          <div>
-            <p className="eyebrow"><span>02</span> SELECTED WORK · AI / ML · SOFTWARE</p>
-            <h2>From intelligent models<br /><span>to useful products.</span></h2>
-          </div>
-          <div className="projects-heading-aside">
-            <p>Applied machine learning, AI products, and full-stack systems—explore the work by discipline or open a case study for the details.</p>
-            <a href="https://github.com/SrijanSingh2006" target="_blank" rel="noreferrer" className="text-link"><Github size={16} /> Browse GitHub <ArrowRight size={15} /></a>
-          </div>
-        </motion.div>
+        <header className="section-heading heading-split">
+          <h2>Selected projects<span className="heading-period">.</span></h2>
+          <a href={PROFILE.github} target="_blank" rel="noreferrer" className="button button-outline"><Github size={18} /> Browse GitHub</a>
+        </header>
 
         <div className="project-browser">
           <div className="project-filters" role="group" aria-label="Filter projects by discipline">
-            {filters.map((filter) => {
-              const count = filter === "All work" ? PROJECTS.length : PROJECTS.filter((project) => project.categories.includes(filter)).length;
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  className={`project-filter${activeFilter === filter ? " is-active" : ""}`}
-                  aria-pressed={activeFilter === filter}
-                  onClick={() => setActiveFilter(filter)}
-                >
-                  {filter}<span>{String(count).padStart(2, "0")}</span>
-                </button>
-              );
-            })}
+            {filters.map((filter) => (
+              <button key={filter.label} type="button" className="project-filter" aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>
+                {filter.label} <span>{filter.projects.length}</span>
+              </button>
+            ))}
           </div>
-          <p className="project-results" aria-live="polite">Showing <strong>{visibleProjects.length}</strong> {visibleProjects.length === 1 ? "project" : "projects"}</p>
+          <p className="sr-only" aria-live="polite">{activeFilter.projects.length} projects</p>
         </div>
 
         <div className="project-grid">
-          {visibleProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} total={visibleProjects.length} onOpen={() => onOpenModal(project)} />
-          ))}
+          {activeFilter.projects.map((project) => <ProjectCard key={project.id} project={project} onOpen={() => onOpenModal(project)} />)}
         </div>
-        <p className="projects-footnote"><span>↳</span> Every project links to its source. Open a case study for the challenge, approach, implementation flow, and model notes.</p>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project, index, total, onOpen }) {
-  const art = projectArt[project.id] || { icon: Braces, accent: "violet", flow: ["IDEA", "BUILD", "SHIP"] };
-  const Icon = art.icon;
+function ProjectCard({ project, onOpen }) {
+  const { Icon, color, image } = projectArt[project.id] ?? { Icon: Braces, color: "violet" };
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: .48, delay: (index % 2) * .08 }}
-      className={`project-tile art-${art.accent}`}
-    >
+    <article className={`project-tile art-${color}${image ? " project-featured" : ""}`}>
       <div className="project-art" aria-hidden="true">
-        <div className="project-art-top"><span className="project-number">{String(index + 1).padStart(2, "0")} <i>/ {String(total).padStart(2, "0")}</i></span><span className="project-period">{project.displayLabel}</span></div>
-        <div className="project-art-center">
-          <div className="project-art-ring ring-a" /><div className="project-art-ring ring-b" />
-          <div className="project-icon"><Icon size={24} strokeWidth={1.65} /></div>
-          <span className="project-art-caption">{art.flow[1]}</span>
-        </div>
-        <div className="project-flow">
-          {art.flow.map((step, stepIndex) => <span key={step}><i>{String(stepIndex + 1).padStart(2, "0")}</i>{step}</span>)}
-        </div>
-        <span className="art-orbit orbit-one" /><span className="art-orbit orbit-two" />
+        <span className="project-art-label"><Icon size={15} />{project.displayLabel}</span>
+        {image ? (
+          <div className="project-screenshot">
+            <img src={`${import.meta.env.BASE_URL}images/${image}`} alt="" width="1360" height="646" loading="lazy" decoding="async" />
+          </div>
+        ) : (
+          <div className="project-symbol">
+            <Icon size={42} strokeWidth={1.35} />
+          </div>
+        )}
       </div>
 
       <div className="project-body">
-        <div className="project-kicker"><span>{project.badge}</span><span className="project-kicker-mark">↗</span></div>
+        <p className="project-kicker">{project.badge}</p>
         <h3>{project.title}</h3>
-        <p>{project.shortDescription}</p>
-        <div className="project-bottom">
-          <div className="project-tech">{project.technologies.slice(0, 4).map((tech) => <span key={tech}>{tech}</span>)}</div>
-          <a href={project.githubLink} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`} onClick={(event) => event.stopPropagation()}><Github size={17} /></a>
+        <p className="project-description">{project.shortDescription}</p>
+        <ul className="tag-list" aria-label="Technologies">
+          {project.technologies.slice(0, 4).map((tech) => <li key={tech}>{tech}</li>)}
+        </ul>
+        <div className="project-actions">
+          <button type="button" className="text-link" onClick={onOpen} aria-label={`View ${project.title} case study`}>View case study</button>
+          <a className="icon-button" href={project.githubLink} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`} title="View source on GitHub"><Github size={18} /></a>
         </div>
-        <button type="button" className="project-read-more" onClick={onOpen}>
-          Read project notes <ArrowRight size={15} />
-        </button>
       </div>
-    </motion.article>
+    </article>
   );
 }
