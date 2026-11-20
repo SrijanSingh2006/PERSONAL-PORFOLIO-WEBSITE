@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Activity, ArrowRight, BarChart3, Braces, FileCheck2, GitBranch, MapPinned, ShieldCheck, ShoppingBag, Wallet, Workflow } from "lucide-react";
 import { Github } from "../Icons";
 import { PROJECTS } from "../../data/projects";
@@ -20,6 +20,7 @@ const filters = ["All work", "AI & ML", "Full stack", "Data & product"];
 
 export default function ProjectsSection({ onOpenModal }) {
   const [activeFilter, setActiveFilter] = useState("All work");
+  const reducedMotion = useReducedMotion();
   const visibleProjects = activeFilter === "All work"
     ? PROJECTS
     : PROJECTS.filter((project) => project.categories.includes(activeFilter));
@@ -27,7 +28,7 @@ export default function ProjectsSection({ onOpenModal }) {
   return (
     <section id="projects" className="projects-editorial relative overflow-hidden">
       <div className="section-shell">
-        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} className="projects-heading">
+        <motion.div initial={reducedMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} className="projects-heading">
           <div>
             <p className="eyebrow"><span>02</span> SELECTED WORK · AI / ML · SOFTWARE</p>
             <h2>From intelligent models<br /><span>to useful products.</span></h2>
@@ -60,7 +61,7 @@ export default function ProjectsSection({ onOpenModal }) {
 
         <div className="project-grid">
           {visibleProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} total={visibleProjects.length} onOpen={() => onOpenModal(project)} />
+            <ProjectCard key={project.id} project={project} index={index} total={visibleProjects.length} reducedMotion={reducedMotion} onOpen={() => onOpenModal(project)} />
           ))}
         </div>
         <p className="projects-footnote"><span>↳</span> Every project links to its source. Open a case study for the challenge, approach, implementation flow, and model notes.</p>
@@ -69,15 +70,19 @@ export default function ProjectsSection({ onOpenModal }) {
   );
 }
 
-function ProjectCard({ project, index, total, onOpen }) {
+function ProjectCard({ project, index, total, reducedMotion, onOpen }) {
   const art = projectArt[project.id] || { icon: Braces, accent: "violet", flow: ["IDEA", "BUILD", "SHIP"] };
   const Icon = art.icon;
   return (
     <motion.article
-      initial={{ opacity: 0, y: 22 }}
+      layout={reducedMotion ? false : "position"}
+      initial={reducedMotion ? false : { opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: .48, delay: (index % 2) * .08 }}
+      transition={{
+        default: { duration: .42, delay: (index % 3) * .04 },
+        layout: { duration: .34, ease: [0.22, 1, 0.36, 1] },
+      }}
       className={`project-tile art-${art.accent}`}
     >
       <div className="project-art" aria-hidden="true">
