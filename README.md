@@ -1,8 +1,8 @@
 # Srijan Singh · AI/ML & Full-Stack Portfolio
 
-I’m a computer science student at SRMIST building applied machine learning projects, AI workflows, and full-stack software.
+**Live portfolio** · <https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/>
 
-[Visit the live portfolio](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
+I’m a computer science student at SRMIST building applied machine learning projects, AI workflows, and full-stack software.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="./docs/portfolio-preview.webp">
