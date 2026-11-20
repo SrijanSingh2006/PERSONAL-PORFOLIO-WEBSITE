@@ -410,7 +410,9 @@ body::before {
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 .section-label { color: var(--color-primary); }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  /* The hero loops have a play/pause control and start paused with this preference. */
+  :not(.hero-loop), *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
 /* Editorial portfolio system: warmer paper, ink, and a restrained violet accent. */

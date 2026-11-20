@@ -1,4 +1,5 @@
-import { ArrowDownRight, ArrowUpRight, Asterisk, FileText, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowDownRight, ArrowUpRight, Asterisk, FileText, Pause, Play, Sparkles } from "lucide-react";
 import { Github, LeetCode, Linkedin } from "../Icons";
 import { PROFILE } from "../../data/portfolioData";
 import { PROJECTS } from "../../data/projects";
@@ -6,8 +7,19 @@ import { PROJECTS } from "../../data/projects";
 const specialties = ["AI / ML", "FULL-STACK", "DATA", "APPLIED AI"];
 
 export default function HeroSection() {
+  const [playing, setPlaying] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const followPreference = (event) => setPlaying(!event.matches);
+    preference.addEventListener("change", followPreference);
+    return () => preference.removeEventListener("change", followPreference);
+  }, []);
+
+  const MotionIcon = playing ? Pause : Play;
+
   return (
-    <section id="hero" className="hero-reimagined">
+    <section id="hero" className="hero-reimagined" data-hero-motion={playing ? "playing" : "paused"}>
       <div className="hero-grid-pattern" aria-hidden="true" />
       <div className="hero-glow hero-glow-one" aria-hidden="true" />
       <div className="hero-glow hero-glow-two" aria-hidden="true" />
@@ -21,7 +33,7 @@ export default function HeroSection() {
           <p className="hero-new-intro">Hey, I’m <strong>{PROFILE.name}</strong> <Asterisk aria-hidden="true" size={23} /></p>
           <h1>
             <span className="hero-title-line">Building the</span>{" "}
-            <span className="hero-title-line"><span className="hero-gradient-word">intelligent</span></span>{" "}
+            <span className="hero-title-line"><span className="hero-gradient-word hero-loop">intelligent</span></span>{" "}
             <span className="hero-title-line">side of things.</span>
           </h1>
           <p className="hero-new-description">From machine learning models to full-stack products, I turn ambitious ideas into experiences people can actually use.</p>
@@ -29,7 +41,15 @@ export default function HeroSection() {
             <a className="hero-new-primary" href="#projects">Explore my work <ArrowDownRight size={19} /></a>
             <a className="hero-new-secondary" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><FileText size={17} /> View résumé <ArrowUpRight size={16} /></a>
           </div>
-          <div className="hero-new-socials"><span>FIND ME ON</span><a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={18} /></a><a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a><a href={PROFILE.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode"><LeetCode size={17} /></a></div>
+          <div className="hero-new-socials">
+            <span>FIND ME ON</span>
+            <a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={18} /></a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
+            <a href={PROFILE.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode"><LeetCode size={17} /></a>
+            <button type="button" className="hero-motion-toggle" onClick={() => setPlaying(!playing)}>
+              <MotionIcon size={15} aria-hidden="true" /> {playing ? "Pause motion" : "Play motion"}
+            </button>
+          </div>
         </div>
         <div className="hero-new-visual">
           <div className="hero-visual-orbit orbit-a" aria-hidden="true" /><div className="hero-visual-orbit orbit-b" aria-hidden="true" />
@@ -38,16 +58,22 @@ export default function HeroSection() {
             <img src={`${import.meta.env.BASE_URL}images/srijan-singh.webp`} alt="Portrait of Srijan Singh" width="822" height="870" fetchPriority="high" />
             <div className="hero-image-caption"><span>MEET THE MAKER</span><strong>{PROFILE.name}<Asterisk size={24} aria-hidden="true" /></strong></div>
           </div>
-          <div className="hero-floating-card hero-floating-ai"><span aria-hidden="true">✦</span><div><strong>AI + ML</strong><small>Ideas into intelligence</small></div></div>
-          <div className="hero-floating-card hero-floating-code"><span aria-hidden="true">⌘</span><div><strong>FULL STACK</strong><small>Built for real people</small></div></div>
+          <div className="hero-loop hero-floating-card hero-floating-ai"><span aria-hidden="true">✦</span><div><strong>AI + ML</strong><small>Ideas into intelligence</small></div></div>
+          <div className="hero-loop hero-floating-card hero-floating-code"><span aria-hidden="true">⌘</span><div><strong>FULL STACK</strong><small>Built for real people</small></div></div>
           <Asterisk className="hero-visual-spark" size={45} aria-hidden="true" />
         </div>
       </div>
-      <ul className="hero-specialty-bar" aria-label="Areas of work">
-        {specialties.map((specialty) => (
-          <li key={specialty}><Asterisk size={19} aria-hidden="true" />{specialty}</li>
-        ))}
-      </ul>
+      <div className="hero-specialty-bar">
+        <div className="hero-specialty-track hero-loop">
+          {[false, true].map((duplicate) => (
+            <ul key={String(duplicate)} className="hero-specialty-group" aria-label="Areas of work" aria-hidden={duplicate || undefined}>
+              {specialties.map((specialty) => (
+                <li key={specialty}><Asterisk size={19} aria-hidden="true" />{specialty}</li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
       <div className="hero-new-stats">
         <div><strong>{PROFILE.cgpa.split("/")[0]}</strong><span>CGPA AT SRMIST</span></div>
         <div><strong>92.10%</strong><span>MOODLINE TEST ACCURACY</span></div>

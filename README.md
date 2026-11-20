@@ -4,14 +4,18 @@ I’m a computer science student at SRMIST building applied machine learning pro
 
 [Visit the live portfolio](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
 
-![The portfolio homepage in the mint light theme, featuring the main headline and Srijan’s portrait](./docs/portfolio-preview.webp)
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./docs/portfolio-preview.webp">
+  <img src="./docs/homepage-motion.gif" alt="The mint portfolio homepage with a shifting headline gradient, floating portrait badges, and scrolling specialties">
+</picture>
 
 ## Explore the portfolio
 
 - Browse nine projects across AI/ML, full-stack engineering, and data and product work. Each case study explains the problem, approach, implementation, and results, and links to the source.
 - Read about my experience and credentials, preview the résumé, or open the PDF.
 - Switch between the mint light theme and the dark theme. The site remembers your preference.
-- The introduction uses staggered headline and portrait entrances. Project cards move into their new positions when you change filters, and the artwork responds to hover and keyboard focus. Motion follows your device’s reduced-motion setting.
+- The headline cycles through a gradient, the portrait badges float, and the lime specialty strip scrolls across the screen. Use **Pause motion** or **Play motion** beside the social links. The animation starts paused when your device requests reduced motion.
+- Project cards slide into place when you change filters, and the artwork responds to hover and keyboard focus.
 
 ## Run locally
 
