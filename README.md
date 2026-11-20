@@ -1,49 +1,35 @@
-# Srijan Singh — AI/ML Developer Portfolio
+# Srijan Singh · AI/ML & Full-Stack Portfolio
 
-![Portfolio Preview](./public/profile.png)
+I’m a computer science student at SRMIST building applied machine learning projects, AI workflows, and full-stack software.
 
-Welcome to the source code of my personal portfolio website! I am an **AI/ML Developer** specializing in Machine Learning, Deep Learning, NLP, Computer Vision, and Generative AI. 
+[Visit the live portfolio](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
 
-🌐 **Live Website**: [https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
+![The portfolio homepage in the mint light theme, featuring the main headline and Srijan’s portrait](./docs/portfolio-preview.webp)
 
-## 🚀 About the Project
-This repository hosts my responsive portfolio, built with React, Framer Motion, and a light/dark editorial interface. It acts as a digital résumé and a showcase for work across applied AI/ML, full-stack engineering, data tools, and product systems.
+## Explore the portfolio
 
-### Tech Stack
-- **Framework**: React (Vite)
-- **Styling**: Tailwind CSS, Vanilla CSS (Custom Utilities)
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages
+- Browse nine projects across AI/ML, full-stack engineering, and data and product work. Each case study explains the problem, approach, implementation, and results, and links to the source.
+- Read about my experience and credentials, preview the résumé, or open the PDF.
+- Switch between the mint light theme and the dark theme. The site remembers your preference.
+- The introduction uses staggered headline and portrait entrances. Project cards move into their new positions when you change filters, and the artwork responds to hover and keyboard focus. Motion follows your device’s reduced-motion setting.
 
-## ⚡ Features
-- **Curated Project Case Studies**: Browse selected GitHub projects by AI/ML, full-stack, or data and product work.
-- **Project Details**: Open a project to see its challenge, approach, implementation flow, model notes, and source link.
-- **Two Colour Modes**: Switch between a soft lilac-and-sea-glass light theme and a deep ink dark theme.
-- **Micro-Interactions**: Includes a custom magnetic cursor, scroll progress bar, and an initializing loader sequence.
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile viewing.
+## Run locally
 
-## 🛠️ Local Development
+```bash
+git clone https://github.com/SrijanSingh2006/PERSONAL-PORFOLIO-WEBSITE.git
+cd PERSONAL-PORFOLIO-WEBSITE
+npm ci
+npm run dev
+```
 
-To run this project locally, follow these steps:
+Open the URL printed by Vite. Run `npm run build` to build the production site in `dist/`.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SrijanSingh2006/PERSONAL-PORFOLIO-WEBSITE.git
-   ```
+## Stack and deployment
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+The site uses React, Vite, Tailwind CSS, Framer Motion, and Lucide icons. GitHub Actions builds the site and publishes it to GitHub Pages from the `gh-pages` branch. [Deployment workflow](./.github/workflows/deploy.yml)
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   Open `http://localhost:5173` to view it in your browser.
+## Connect
 
-## 📫 Connect with me
-- **Email**: [srijansingh2006@gmail.com](mailto:srijansingh2006@gmail.com)
-- **LinkedIn**: [in/srijansingh2006](https://linkedin.com/in/srijansingh2006)
-- **GitHub**: [SrijanSingh2006](https://github.com/SrijanSingh2006)
+- [GitHub](https://github.com/SrijanSingh2006)
+- [LinkedIn](https://www.linkedin.com/in/srijan-singh-999a552a9)
+- [Email](mailto:srijansingh2006@gmail.com)
