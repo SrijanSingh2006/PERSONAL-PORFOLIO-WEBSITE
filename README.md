@@ -7,11 +7,11 @@ Welcome to the source code of my personal portfolio website! I am an **AI/ML Dev
 🌐 **Live Website**: [https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/](https://srijansingh2006.github.io/PERSONAL-PORFOLIO-WEBSITE/)
 
 ## 🚀 About the Project
-This repository hosts my responsive portfolio, built with React, Framer Motion, and a light/dark editorial interface. It acts as a digital résumé and a showcase for work across applied AI/ML, full-stack engineering, data tools, and product systems.
+This repository hosts my responsive portfolio, built with React, Framer Motion, and a responsive interface with dark and light themes. It acts as a digital résumé and a showcase for work across applied AI/ML, full-stack engineering, data tools, and product systems.
 
 ### Tech Stack
 - **Framework**: React (Vite)
-- **Styling**: Tailwind CSS, Vanilla CSS (Custom Utilities)
+- **Styling**: CSS custom properties and responsive layouts
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Deployment**: GitHub Pages
@@ -19,8 +19,8 @@ This repository hosts my responsive portfolio, built with React, Framer Motion, 
 ## ⚡ Features
 - **Curated Project Case Studies**: Browse selected GitHub projects by AI/ML, full-stack, or data and product work.
 - **Project Details**: Open a project to see its challenge, approach, implementation flow, model notes, and source link.
-- **Two Colour Modes**: Switch between a soft lilac-and-sea-glass light theme and a deep ink dark theme.
-- **Micro-Interactions**: Includes a custom magnetic cursor, scroll progress bar, and an initializing loader sequence.
+- **Two Colour Modes**: Switch between dark and light themes. The site remembers your preference.
+- **Résumé Preview**: Preview the résumé in the portfolio or download the PDF.
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile viewing.
 
 ## 🛠️ Local Development

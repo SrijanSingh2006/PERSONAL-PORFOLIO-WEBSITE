@@ -1,41 +1,54 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDownRight, ArrowUpRight, FileText, Sparkles } from "lucide-react";
-import { Github, Linkedin } from "../Icons";
-import { PROFILE } from "../../data/portfolioData";
+import { Asterisk, FileText, LayoutGrid, MapPin } from "lucide-react";
+import { Github, LeetCode, Linkedin } from "../Icons";
+import { PROFILE, STATS } from "../../data/portfolioData";
+import { PROJECTS } from "../../data/projects";
 
-const specialties = ["AI / ML", "FULL-STACK", "DATA", "APPLIED AI"];
+const heroStats = [
+  { ...STATS[0], label: "CGPA at SRMIST" },
+  { value: PROJECTS.length, label: "Selected projects" },
+  { ...STATS[3], label: "Moodline test accuracy" },
+];
 
 export default function HeroSection() {
-  const reducedMotion = useReducedMotion();
-  const scrollToProjects = () => document.getElementById("projects")?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
-
   return (
-    <section id="hero" className="hero-reimagined">
-      <div className="hero-grid-pattern" aria-hidden="true" />
-      <div className="hero-glow hero-glow-one" aria-hidden="true" />
-      <div className="hero-glow hero-glow-two" aria-hidden="true" />
-      <div className="hero-new-layout">
-        <motion.div className="hero-new-copy" initial={reducedMotion ? false : { opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7 }}>
-          <div className="hero-new-kicker"><span className="hero-new-dot" /> AI / ML & SOFTWARE ENGINEER <span className="hero-kicker-line" /> CHENNAI, INDIA</div>
-          <p className="hero-new-intro">Hey, I’m <strong>Srijan Singh</strong> <span>✳</span></p>
-          <h1>Building the<br /><span className="hero-gradient-word">intelligent</span><br />side of <span className="hero-outline-word">things.</span></h1>
-          <p className="hero-new-description">From machine learning models to full-stack products, I turn ambitious ideas into experiences people can actually use.</p>
-          <div className="hero-new-actions">
-            <button type="button" className="hero-new-primary" onClick={scrollToProjects}>Explore my work <ArrowDownRight size={19} /></button>
-            <a className="hero-new-secondary" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><FileText size={17} /> View résumé <ArrowUpRight size={16} /></a>
+    <section id="hero" className="hero">
+      <div className="section-shell">
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <p className="eyebrow hero-kicker"><span aria-hidden="true" /> AI/ML & Full-Stack Engineer</p>
+            <h1>Srijan <span>Singh<span className="hero-period">.</span></span></h1>
+            <p className="hero-description">I build machine learning models, AI workflows, and full-stack applications with a focus on careful evaluation and clear interfaces.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects"><LayoutGrid size={17} /> Explore projects</a>
+              <a className="button button-outline" href={PROFILE.resumePdfUrl} target="_blank" rel="noreferrer"><FileText size={17} /> View résumé</a>
+            </div>
+            <div className="hero-socials" aria-label="Social profiles">
+              <a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><Github size={19} /></a>
+              <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={19} /></a>
+              <a href={PROFILE.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" title="LeetCode"><LeetCode size={18} /></a>
+            </div>
           </div>
-          <div className="hero-new-socials"><span>FIND ME ON</span><a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={18} /></a><a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a><a href={PROFILE.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode">LC</a></div>
-        </motion.div>
-        <motion.div className="hero-new-visual" initial={reducedMotion ? false : { opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8, delay: .15 }}>
-          <div className="hero-visual-orbit orbit-a" aria-hidden="true" /><div className="hero-visual-orbit orbit-b" aria-hidden="true" />
-          <div className="hero-image-card"><div className="hero-image-top"><span>CREATIVE ENGINEERING</span><Sparkles size={16} /></div><img src={`${import.meta.env.BASE_URL}profile.png`} alt="Portrait of Srijan Singh" /><div className="hero-image-caption"><span>MEET THE MAKER</span><strong>Srijan Singh<span>✳</span></strong></div></div>
-          <div className="hero-floating-card hero-floating-ai"><span>✦</span><div><strong>AI + ML</strong><small>Ideas into intelligence</small></div></div>
-          <div className="hero-floating-card hero-floating-code"><span>⌘</span><div><strong>FULL STACK</strong><small>Built for real people</small></div></div>
-          <div className="hero-visual-spark" aria-hidden="true">✳</div>
-        </motion.div>
+
+          <div className="hero-portrait">
+            <div className="portrait-grid" aria-hidden="true" />
+            <div className="portrait-orbit" aria-hidden="true" />
+            <div className="portrait-frame">
+              <img src={`${import.meta.env.BASE_URL}images/srijan-singh.webp`} alt="Portrait of Srijan Singh" width="822" height="870" fetchPriority="high" />
+              <span className="portrait-location"><MapPin size={15} /> {PROFILE.location}</span>
+            </div>
+            <Asterisk className="portrait-spark" strokeWidth={1.3} aria-hidden="true" />
+          </div>
+        </div>
+
+        <dl className="hero-stats">
+          {heroStats.map(({ label, value }) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <div className="hero-specialty-bar" aria-label="Areas of work: AI and machine learning, full-stack development, data, and applied AI"><div className="hero-specialty-track" aria-hidden="true">{[0, 1].map(copy => <div className="hero-specialty-group" key={copy}>{specialties.map(specialty => <span key={specialty}>{specialty}<i>✳</i></span>)}</div>)}</div></div>
-      <div className="hero-new-stats"><div><strong>9.14</strong><span>CGPA AT SRMIST</span></div><div><strong>92.10%</strong><span>MOODLINE TEST ACCURACY</span></div><div><strong>09<span>+</span></strong><span>SELECTED PROJECTS</span></div><button onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" })}>SCROLL TO EXPLORE <ArrowDownRight size={17} /></button></div>
     </section>
   );
 }
